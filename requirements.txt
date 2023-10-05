@@ -1,0 +1,10 @@
+asyncpg
+blacksheep
+debugpy
+docker
+python-dotenv
+faker
+piccolo[postgres]
+piccolo_admin
+psycopg2-binary==2.9.6
+uvicorn==0.22.0
