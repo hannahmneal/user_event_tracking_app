@@ -1,0 +1,1559 @@
+{
+	"info": {
+		"_postman_id": "f0c34e3f-0fa1-4c15-88bb-d64bf0f7ad1e",
+		"name": "User Events Api Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7097435"
+	},
+	"item": [
+		{
+			"name": "Persons",
+			"item": [
+				{
+					"name": "Persons",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/persons",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"persons"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 | Ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/persons",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"persons"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 06 Oct 2023 02:58:44 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "1091"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"e67e0a09-b4bf-465b-9490-a1f284d2d090\",\n            \"datetime_created\": \"2023-10-06T02:39:56.366948\",\n            \"datetime_modified\": \"2023-10-06T02:39:56.366948\",\n            \"email\": \"Effie.Abshire@test.mock\",\n            \"events\": [],\n            \"first_name\": \"Effie\",\n            \"last_name\": \"Abshire\",\n            \"role\": \"user\"\n        },\n        {\n            \"id\": \"3ebec32b-49bb-455e-a0ae-8fbf6c440581\",\n            \"datetime_created\": \"2023-10-06T02:41:02.502941\",\n            \"datetime_modified\": \"2023-10-06T02:41:02.502941\",\n            \"email\": \"Rosamond.Luettgen@test.mock\",\n            \"events\": [],\n            \"first_name\": \"Rosamond\",\n            \"last_name\": \"Luettgen\",\n            \"role\": \"admin\"\n        },\n        {\n            \"id\": \"55e6face-788d-43f0-ae6e-dd32dff6d8bd\",\n            \"datetime_created\": \"2023-10-06T02:41:06.875797\",\n            \"datetime_modified\": \"2023-10-06T02:41:06.875797\",\n            \"email\": \"Daphne.Buckridge@test.mock\",\n            \"events\": [],\n            \"first_name\": \"Daphne\",\n            \"last_name\": \"Buckridge\",\n            \"role\": \"admin\"\n        },\n        {\n            \"id\": \"bea58cbf-0b80-4564-be18-29e258468f2e\",\n            \"datetime_created\": \"2023-10-06T02:41:08.307449\",\n            \"datetime_modified\": \"2023-10-05T21:56:47.467118\",\n            \"email\": \"Scott.Summers@test.mock\",\n            \"events\": [],\n            \"first_name\": \"Scott\",\n            \"last_name\": \"Summers\",\n            \"role\": \"admin\"\n        }\n    ],\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+						},
+						{
+							"name": "200 | No items in the database but the request is successful",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/persons",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"persons"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 05 Oct 2023 01:27:45 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "149"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"response\": {\n        \"details\": \"The request was successful, however, there are no items in the database to retrieve.\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+						},
+						{
+							"name": "500 | Internal server error due to incorrect syntax in code itself",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/persons",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"persons"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 05 Oct 2023 02:37:30 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "3907"
+								}
+							],
+							"cookie": [],
+							"body": "<!DOCTYPE html>\n<html>\n    <head>\n        <title>Internal Server Error.</title>\n        <meta charset=\"utf-8\" />\n        <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>\n        <style>\n      body {\n  font-family: sans-serif;\n  margin: 0;\n  padding: 0;\n}\n\ndl {\n  display: flex;\n  flex-flow: row;\n  flex-wrap: wrap;\n  overflow: visible;\n}\n\ndt {\n  font-weight: bold;\n  flex: 0 0 20%;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  border-bottom: 1px dotted #eee;\n  padding: 10px 0;\n}\n\ndd {\n  flex: 0 0 80%;\n  margin-left: auto;\n  text-align: left;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  padding: 10px 0;\n  border-bottom: 1px dotted #eee;\n}\n\ndt, dd {\n  padding: .3rem 0;\n}\n\nheader {\n  background-color: #1c6962;\n  color: white;\n  padding: .5rem 2rem;\n  border-bottom: 1px solid #0f5046;\n}\n\n#content {\n  padding: .5rem 2rem;\n}\n\n.stack-trace {\n  font-family: monospace;\n  background: aliceblue;\n  padding: 1rem 3.5rem;\n  border: 1px dashed #366a62;\n  font-size: 14px;\n}\n\n.stack-trace pre {\n  padding-left: 60px;\n  word-break: break-word;\n  white-space: break-spaces;\n}\n\n.custom-counter {\n  margin: 0;\n  padding: 0 1rem 0 0;\n  list-style-type: none;\n}\n\n.custom-counter li {\n  counter-increment: step-counter;\n  margin-bottom: 5px;\n}\n\n.custom-counter li::before {\n  content: counter(step-counter);\n  margin-right: 20px;\n  font-size: 80%;\n  background-color: rgb(54 106 98);\n  color: white;\n  font-weight: bold;\n  padding: 3px 8px;\n  float: left;\n  border-radius: 11px;\n  margin-left: 20px;\n}\n\n.notes {\n  padding: 1rem 0;\n  font-size: small;\n}\n\n    </style>\n    </head>\n    <body>\n        <header>\n            <h1>Internal Server Error.</h1>\n            <p>While handling request: GET /persons</p>\n        </header>\n        <div id=\"content\">\n            <div>\n                <dl>\n                    <dt>Exception type:</dt>\n                    <dd>TypeError</dd>\n                    <dt>Exception message:</dt>\n                    <dd>internal_server_error_message() missing 1 required positional argument: 'ex'</dd>\n                    <dt>Method:</dt>\n                    <dd>GET</dd>\n                    <dt>URL:</dt>\n                    <dd>http://127.0.0.1:8080/persons</dd>\n                </dl>\n            </div>\n            <hr/>\n            <h3>Stack trace:</h3>\n            <ol class=\"stack-trace custom-counter\">\n                <li>\n                    <pre>Traceback (most recent call last):\n</pre>\n                </li>\n                <li>\n                    <pre>  File &quot;/Users/hannahneal/workspace/user_event_tracking_app/api/server.py&quot;, line 61, in persons\n    return ok(custom_response(data=persons, details=successful_message(), message=&quot;Ok&quot;, status=200))\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n</pre>\n                </li>\n                <li>\n                    <pre>TypeError: custom_response() got an unexpected keyword argument &#x27;status&#x27;\n</pre>\n                </li>\n                <li>\n                    <pre>\nDuring handling of the above exception, another exception occurred:\n\n</pre>\n                </li>\n                <li>\n                    <pre>Traceback (most recent call last):\n</pre>\n                </li>\n                <li>\n                    <pre>  File &quot;blacksheep/baseapp.pyx&quot;, line 84, in blacksheep.baseapp.BaseApplication.handle\n</pre>\n                </li>\n                <li>\n                    <pre>  File &quot;/opt/homebrew/lib/python3.11/site-packages/blacksheep/server/normalization.py&quot;, line 513, in handler\n    return await method()\n           ^^^^^^^^^^^^^^\n</pre>\n                </li>\n                <li>\n                    <pre>  File &quot;/Users/hannahneal/workspace/user_event_tracking_app/api/server.py&quot;, line 63, in persons\n    raise InternalServerError(message=custom_response(data=None, details=internal_server_error_message(), message=&quot;Internal Server Error&quot;, status_code=500))\n                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n</pre>\n                </li>\n                <li>\n                    <pre>TypeError: internal_server_error_message() missing 1 required positional argument: &#x27;ex&#x27;\n</pre>\n                </li>\n            </ol>\n            <hr/>\n            <div class=\"notes\">\n                <span>\n          This error is displayed for diagnostic purpose. Error details\n          should be hidden during normal service operation.\n        </span>\n            </div>\n        </div>\n    </body>\n</html>"
+						}
+					]
+				},
+				{
+					"name": "Persons by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/persons/a22aeae0-7af3-4465-adb5-7b4991edd7a7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"persons",
+								"a22aeae0-7af3-4465-adb5-7b4991edd7a7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 | Ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/persons/bea58cbf-0b80-4564-be18-29e258468f2e",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"persons",
+										"bea58cbf-0b80-4564-be18-29e258468f2e"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 06 Oct 2023 02:57:49 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "335"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"bea58cbf-0b80-4564-be18-29e258468f2e\",\n        \"datetime_created\": \"2023-10-06T02:41:08.307449\",\n        \"datetime_modified\": \"2023-10-05T21:56:47.467118\",\n        \"email\": \"Scott.Summers@test.mock\",\n        \"events\": [],\n        \"first_name\": \"Scott\",\n        \"last_name\": \"Summers\",\n        \"role\": \"admin\"\n    },\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+						},
+						{
+							"name": "404 | Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/persons/806de18e-c882-4b2b-b607-b5fa001ae3d4",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"persons",
+										"806de18e-c882-4b2b-b607-b5fa001ae3d4"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 05 Oct 2023 01:27:05 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "215"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"response\": {\n        \"details\": \"The Person with `id` 806de18e-c882-4b2b-b607-b5fa001ae3d4 could not be found. Please ensure the `id` in your request is correct and try again\",\n        \"message\": \"Not Found\",\n        \"status\": 404\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Persons (dynamic)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"Running pre-request script for creating a new Person\");",
+									"console.log(\"Unsetting existing collection variables\");",
+									"",
+									"pm.collectionVariables.unset(\"request_body\");",
+									"pm.collectionVariables.unset(\"person\")",
+									"pm.collectionVariables.unset(\"role\")",
+									"",
+									"/************* Constants: Enums *************/",
+									"const enums = [",
+									"    {",
+									"        name: \"role\",",
+									"        values: [\"user\", \"admin\"]",
+									"    }",
+									"]",
+									"",
+									"/************* Constants: Arrays & Objects *************/",
+									"",
+									"const phone_numbers = [",
+									"    \"202-555-0132\",",
+									"    \"202-555-0101\",",
+									"    \"202-555-0134\",",
+									"    \"202-555-0186\",",
+									"    \"202-555-0193\",",
+									"    \"202-555-0135\",",
+									"    \"202-555-0184\",",
+									"    \"202-555-0140\",",
+									"    \"202-555-0168\"",
+									"];",
+									"",
+									"class Person {",
+									"    email = undefined;",
+									"    first_name = undefined;",
+									"    last_name = undefined;",
+									"    role = undefined;",
+									"}",
+									"",
+									"/************* Helper Functions *************/",
+									"",
+									"// Gets a random value from a given array",
+									"const getRandomValue = (propertyWithDefinedValues) => {",
+									"    const highestIndex = propertyWithDefinedValues.length;",
+									"    const randomIndex = Math.floor(Math.random() * highestIndex);",
+									"    const randomValueForProperty = propertyWithDefinedValues[randomIndex];",
+									"    return randomValueForProperty;",
+									"}",
+									"",
+									"// Get random values for all enums in the `enum` array in the section above",
+									"const getRandomValuesForAllEnums = () => {",
+									"    console.log(\"Unsetting enum collection variables and re-setting them with the new random values...\")",
+									"    enums.forEach(e => {",
+									"        let name = e.name.toString();",
+									"        let upperLimit = e.values.length;",
+									"        let value = getRandomValue(e.values);",
+									"        // If a collection variable already exists by this name, unset/remove it so an error doesn't occur:",
+									"        pm.collectionVariables.unset(name);",
+									"        // Set the variable anew:",
+									"        pm.collectionVariables.set(name, value);",
+									"    });",
+									"}",
+									"",
+									"// Make a person object. If roles or person types are ever desired, the personType can be used.",
+									"const makeNewPerson = (personType = null) => {",
+									"    console.log(\"Making a new person...\");",
+									"",
+									"    // We do NOT want this to be a const",
+									"    let person = {",
+									"        \"email\": undefined,",
+									"        \"first_name\": undefined,",
+									"        \"last_name\": undefined,",
+									"        \"role\": undefined,",
+									"    } ",
+									"    ",
+									"    // Get random value (via Postman's Faker implementation) for the first_name variable",
+									"    const first_name = pm.variables.replaceIn(\"{{$randomFirstName}}\");",
+									"    // Set the first_name of this person object to the random value you obtained above",
+									"    person.first_name = first_name",
+									"",
+									"    const last_name = pm.variables.replaceIn(\"{{$randomLastName}}\");",
+									"    person.last_name = last_name",
+									"",
+									"    // person.phone = getRandomValue(phone_numbers);",
+									"    // Build a realistic email from the random first and last name (good for realistic data)",
+									"    person.email = `${first_name}.${last_name}@test.mock`",
+									"",
+									"    person.role = pm.collectionVariables.get(\"role\");",
+									"",
+									"    console.log(\"Created person: \", person);",
+									"",
+									"    return person;",
+									"}",
+									"",
+									"/************* *************/",
+									"",
+									"getRandomValuesForAllEnums(enums);",
+									"const person = makeNewPerson();",
+									"console.log(\"New person created: \\n\", person);",
+									"pm.collectionVariables.set(\"person\", person);",
+									"",
+									"/************* Request Body *************/",
+									"",
+									"const requestBody = {",
+									"    \"email\": `${pm.collectionVariables.get(\"person\").email}`,",
+									"    \"first_name\": `${pm.collectionVariables.get(\"person\").first_name}`,",
+									"    \"last_name\": `${pm.collectionVariables.get(\"person\").last_name}`,",
+									"    \"role\": `${pm.collectionVariables.get(\"person\").role}`",
+									"}",
+									"",
+									"const requestBodyStr = JSON.stringify(requestBody);",
+									"console.log(\"Setting `request_body` collection variable...\");",
+									"pm.collectionVariables.set('request_body', requestBodyStr);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{request_body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/persons",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"persons"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 | Ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{{request_body}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/persons",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"persons"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 06 Oct 2023 02:39:55 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "334"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"e67e0a09-b4bf-465b-9490-a1f284d2d090\",\n        \"datetime_created\": \"2023-10-06T02:39:56.366948\",\n        \"datetime_modified\": \"2023-10-06T02:39:56.366948\",\n        \"email\": \"Effie.Abshire@test.mock\",\n        \"events\": [],\n        \"first_name\": \"Effie\",\n        \"last_name\": \"Abshire\",\n        \"role\": \"user\"\n    },\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 201\n    }\n}"
+						},
+						{
+							"name": "400 | Caught exception from bad request in the code itself",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{{request_body}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/persons",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"persons"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 05 Oct 2023 02:30:21 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "178"
+								}
+							],
+							"cookie": [],
+							"body": "Bad Request: The Person was not created. Please ensure the data in your request is correct and try again. Details: \n custom_response() got an unexpected keyword argument 'status'"
+						}
+					]
+				},
+				{
+					"name": "Persons (manual)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"\",\n    \"first_name\": \"\",\n    \"last_name\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/persons",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"persons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Person update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"bea58cbf-0b80-4564-be18-29e258468f2e\",\n    \"email\": \"Scott.Summers@test.mock\",\n    \"events\": [],\n    \"first_name\": \"Scott\",\n    \"last_name\": \"Summers\",\n    \"role\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/persons/bea58cbf-0b80-4564-be18-29e258468f2e",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"persons",
+								"bea58cbf-0b80-4564-be18-29e258468f2e"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 | Ok",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"bea58cbf-0b80-4564-be18-29e258468f2e\",\n    \"email\": \"Scott.Summers@test.mock\",\n    \"events\": [],\n    \"first_name\": \"Scott\",\n    \"last_name\": \"Summers\",\n    \"role\": \"admin\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/persons/bea58cbf-0b80-4564-be18-29e258468f2e",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"persons",
+										"bea58cbf-0b80-4564-be18-29e258468f2e"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 06 Oct 2023 02:56:51 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "335"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"bea58cbf-0b80-4564-be18-29e258468f2e\",\n        \"datetime_created\": \"2023-10-06T02:41:08.307449\",\n        \"datetime_modified\": \"2023-10-05T21:56:47.467118\",\n        \"email\": \"Scott.Summers@test.mock\",\n        \"events\": [],\n        \"first_name\": \"Scott\",\n        \"last_name\": \"Summers\",\n        \"role\": \"admin\"\n    },\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+						},
+						{
+							"name": "400 | Bad Request (ids in route and request do not match)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"5664cc13-bed8-4173-9900-bb3f10d2b7ee\",\n    \"email\": \"Roberto.daCosta@test.mock\",\n    \"first_name\": \"Roberto\",\n    \"last_name\": \"da Costa\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/persons/9a8ed92e-219d-4a09-950f-964b9acf1f0f",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"persons",
+										"9a8ed92e-219d-4a09-950f-964b9acf1f0f"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 05 Oct 2023 03:38:42 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "259"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"response\": {\n        \"details\": \"The id in the route (9a8ed92e-219d-4a09-950f-964b9acf1f0f) does not match the id in the request body (5664cc13-bed8-4173-9900-bb3f10d2b7ee). Please ensure the ids match and try again.\",\n        \"message\": \"Bad Request\",\n        \"status\": 400\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Person delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"7c56a5bc-6037-432f-bd4e-3606a744fcf4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/persons/e6919a4d-055d-4c79-a44a-98a888c050bc",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"persons",
+								"e6919a4d-055d-4c79-a44a-98a888c050bc"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400 | Bad Request (ids in route and body are mismatched)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"2fa9a333-c406-4764-8768-3e85a5bf28e0\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/persons/2fa9a333-c406-4764-8768-3e85a5bf28e0",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"persons",
+										"2fa9a333-c406-4764-8768-3e85a5bf28e0"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 05 Oct 2023 04:49:05 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "259"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"response\": {\n        \"details\": \"The id in the route (2fa9a333-c406-4764-8768-3e85a5bf28e0) does not match the id in the request body (334c3a1b-c62f-4c2c-a14a-e83ea522f146). Please ensure the ids match and try again.\",\n        \"message\": \"Bad Request\",\n        \"status\": 400\n    }\n}"
+						},
+						{
+							"name": "200 |Ok",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"9a8ed92e-219d-4a09-950f-964b9acf1f0f\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/persons/9a8ed92e-219d-4a09-950f-964b9acf1f0f",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"persons",
+										"9a8ed92e-219d-4a09-950f-964b9acf1f0f"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 05 Oct 2023 06:33:44 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "93"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+						},
+						{
+							"name": "404 | Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"2fa9a333-c406-4764-8768-3e85a5bf28e0\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/persons/9a8ed92e-219d-4a09-950f-964b9acf1f0f",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"persons",
+										"9a8ed92e-219d-4a09-950f-964b9acf1f0f"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 05 Oct 2023 06:34:11 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "215"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"response\": {\n        \"details\": \"The Person with `id` 9a8ed92e-219d-4a09-950f-964b9acf1f0f could not be found. Please ensure the `id` in your request is correct and try again\",\n        \"message\": \"Not Found\",\n        \"status\": 404\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "Events",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/events?search=\"signup\"",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"events"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "\"signup\""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 | Ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/events",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 06 Oct 2023 08:45:18 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "257"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"62701308-809d-4302-b345-92ca72285194\",\n            \"datetime_created\": \"2023-10-06T08:44:23.125253\",\n            \"event_type\": \"signup\",\n            \"person_id\": \"049bb5dd-91d2-464e-b049-07da3e8d2627\"\n        }\n    ],\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+						},
+						{
+							"name": "200 | Success but no data exists in database",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/events",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 05 Oct 2023 21:37:05 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "149"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"response\": {\n        \"details\": \"The request was successful, however, there are no items in the database to retrieve.\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+						},
+						{
+							"name": "200 | Successful search by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/events?search=\"62701308-809d-4302-b345-92ca72285194\"",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"events"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "\"62701308-809d-4302-b345-92ca72285194\""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 06 Oct 2023 09:28:02 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "257"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"62701308-809d-4302-b345-92ca72285194\",\n            \"datetime_created\": \"2023-10-06T08:44:23.125253\",\n            \"event_type\": \"signup\",\n            \"person_id\": \"049bb5dd-91d2-464e-b049-07da3e8d2627\"\n        }\n    ],\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+						},
+						{
+							"name": "200 | Successful request but no items are in database",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/events?search=\"signup\"",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"events"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "\"signup\""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 06 Oct 2023 09:32:27 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "149"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"response\": {\n        \"details\": \"The request was successful, however, there are no items in the database to retrieve.\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Events by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/events/62701308-809d-4302-b345-92ca72285194",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"events",
+								"62701308-809d-4302-b345-92ca72285194"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404 | Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/events/bb49e97c-3007-4b97-85fe-cead37ecb825",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"events",
+										"bb49e97c-3007-4b97-85fe-cead37ecb825"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 05 Oct 2023 21:46:46 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "214"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"response\": {\n        \"details\": \"The Event with `id` bb49e97c-3007-4b97-85fe-cead37ecb825 could not be found. Please ensure the `id` in your request is correct and try again\",\n        \"message\": \"Not Found\",\n        \"status\": 404\n    }\n}"
+						},
+						{
+							"name": "200 | Ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/events/62701308-809d-4302-b345-92ca72285194",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"events",
+										"62701308-809d-4302-b345-92ca72285194"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 06 Oct 2023 08:45:44 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "255"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"62701308-809d-4302-b345-92ca72285194\",\n        \"datetime_created\": \"2023-10-06T08:44:23.125253\",\n        \"event_type\": \"signup\",\n        \"person_id\": \"049bb5dd-91d2-464e-b049-07da3e8d2627\"\n    },\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Events (dynamic)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"Running pre-request script for creating a new Event\");",
+									"console.log(\"Unsetting existing collection variables\");",
+									"",
+									"pm.collectionVariables.unset(\"event_type\")",
+									"",
+									"/************* Constants: Enums *************/",
+									"const enums = [",
+									"    {",
+									"        name: \"event_type\",",
+									"        values: [\"click\", \"signup\", \"submitted_feedback\"]",
+									"    }",
+									"]",
+									"",
+									"/************* Constants: Arrays & Objects *************/",
+									"",
+									"class Event {",
+									"    id = undefined;",
+									"    datetime_created = undefined;",
+									"    event_type = undefined;",
+									"    person_id = undefined;",
+									"}",
+									"",
+									"/************* Helper Functions *************/",
+									"",
+									"// Gets a random value from a given array",
+									"const getRandomValue = (propertyWithDefinedValues) => {",
+									"    const highestIndex = propertyWithDefinedValues.length;",
+									"    const randomIndex = Math.floor(Math.random() * highestIndex);",
+									"    const randomValueForProperty = propertyWithDefinedValues[randomIndex];",
+									"    return randomValueForProperty;",
+									"}",
+									"",
+									"// Get random values for all enums in the `enum` array in the section above",
+									"const getRandomValuesForAllEnums = () => {",
+									"    console.log(\"Unsetting enum collection variables and re-setting them with the new random values...\")",
+									"    enums.forEach(e => {",
+									"        let name = e.name.toString();",
+									"        let upperLimit = e.values.length;",
+									"        let value = getRandomValue(e.values);",
+									"        // If a collection variable already exists by this name, unset/remove it so an error doesn't occur:",
+									"        pm.collectionVariables.unset(name);",
+									"        // Set the variable anew:",
+									"        pm.collectionVariables.set(name, value);",
+									"    });",
+									"}",
+									"",
+									"/************* *************/",
+									"",
+									"getRandomValuesForAllEnums(enums);",
+									"console.log(\"New event_type collection variable set\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"event_type\": \"{{event_type}}\",\n    \"person_id\": \"bb49e97c-3007-4b97-85fe-cead37ecb825\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/events",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 | Ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"event_type\": \"{{event_type}}\",\n    \"person_id\": \"049bb5dd-91d2-464e-b049-07da3e8d2627\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/events",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 06 Oct 2023 08:44:22 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "255"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"62701308-809d-4302-b345-92ca72285194\",\n        \"datetime_created\": \"2023-10-06T08:44:23.125253\",\n        \"event_type\": \"signup\",\n        \"person_id\": \"049bb5dd-91d2-464e-b049-07da3e8d2627\"\n    },\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 201\n    }\n}"
+						},
+						{
+							"name": "400 | String provided for person_id instead of uuid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"event_type\": \"{{event_type}}\",\n    \"person_id\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/events",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 05 Oct 2023 23:06:10 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "119"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"loc\": [\n            \"person_id\"\n        ],\n        \"msg\": \"value is not a valid uuid\",\n        \"type\": \"type_error.uuid\"\n    }\n]"
+						},
+						{
+							"name": "404 | The person_id does not exist in the database",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"event_type\": \"{{event_type}}\",\n    \"person_id\": \"bb49e97c-3007-4b97-85fe-cead37ecb825\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/events",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 05 Oct 2023 23:06:52 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "215"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"response\": {\n        \"details\": \"The Person with `id` 283d992b-1de5-4bc1-b033-3e5dbd5a9efa could not be found. Please ensure the `id` in your request is correct and try again\",\n        \"message\": \"Not Found\",\n        \"status\": 404\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Events (manual)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"event_type\": \"signup\",\n    \"person_id\": \"8ed7a589-acab-4a79-9e18-dc351ce0a752\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/events",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"62701308-809d-4302-b345-92ca72285194\",\n    \"person_id\": \"049bb5dd-91d2-464e-b049-07da3e8d2627\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/events/62701308-809d-4302-b345-92ca72285194",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"events",
+								"62701308-809d-4302-b345-92ca72285194"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 | Ok",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"62701308-809d-4302-b345-92ca72285194\",\n    \"person_id\": \"049bb5dd-91d2-464e-b049-07da3e8d2627\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/events/62701308-809d-4302-b345-92ca72285194",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"events",
+										"62701308-809d-4302-b345-92ca72285194"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 06 Oct 2023 09:31:19 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "93"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Home",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crash test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/crash_test",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"crash_test"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "request_body",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "person",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "countries",
+			"value": ""
+		},
+		{
+			"key": "event_type",
+			"value": ""
+		},
+		{
+			"key": "role",
+			"value": ""
+		}
+	]
+}

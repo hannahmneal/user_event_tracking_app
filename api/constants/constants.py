@@ -14,7 +14,9 @@ def custom_response(data: any, details: str, message: str, status_code: int):
 # ex -> exception
 # ------------------------- Bad Request ----------------------------------
 
-def bad_request_message():
+def bad_request_message(ex: Exception = None):
+    if ex:
+        return f"The request is invalid. Please ensure the data in your request is correct and try again. Detail: {ex}"
     return f"The request is invalid. Please ensure the data in your request is correct and try again."
 
 def route_request_mismatch_message(id: str, request_id: str) -> str:
@@ -27,7 +29,6 @@ def not_created_message(ent, ex: Exception) -> str:
 
 def internal_server_error_message(ex: Exception) -> str:
     return f"An unknown error occurred while processing the request. Details: \n {ex}"
-
 
 # --------------------------- Not Found --------------------------------
 

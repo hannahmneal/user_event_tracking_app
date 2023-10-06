@@ -1,15 +1,18 @@
-from blacksheep import Application, FromQuery, FromJSON, Response, bad_request, not_found, ok
+from typing import Optional
+from blacksheep import Application, FromJSON, FromQuery, Response, bad_request, not_found, ok
 from blacksheep.exceptions import InternalServerError
 from blacksheep.server.openapi.v3 import OpenAPIHandler
 from .constants import *
 from datetime import datetime
 from api.db.tables.person import Person
+from api.db.tables.event import Event
 from dotenv import load_dotenv
-import json
 from .models import (
-    PersonModelDeleteRequest,
-    PersonModelPostRequest,
-    PersonModelPutRequest,
+    PersonDeleteModel,
+    PersonPostModel,
+    PersonPutModel,
+    EventDeleteModel,
+    EventPostModel
 )
 from openapidocs.v3 import Info
 import os
@@ -52,22 +55,24 @@ def crash_test():
 @get("/persons")
 async def persons() -> Response:
     """
-    Gets a list of all Persons
+    Gets a list of all Persons. Note that if _no_ Person items are present in the database, an empty array is returned *successfully*.
     """
     try:
         print(f"\nGetting a list of all Persons...")
         persons = await Person.select()
         if not persons:
+            # 💡 This 'successfully returned no data in array' situation might be really annoying for UI development,
+            # especially if array operations are involved. It might be easier to throw an error instead.
             return ok(message=custom_response(data=persons, details="The request was successful, however, there are no items in the database to retrieve.", message="Ok", status_code=200))
         return ok(message=custom_response(data=persons, details=successful_message(), message="Ok", status_code=200))
     except Exception as e:
-        raise InternalServerError(message=custom_response(data=None, details=internal_server_error_message(ex=e), message="Internal Server Error", status_code=500))
+        return not_found(message=custom_response(data=persons, details=not_found_message(ex=e), message="Not Found", status_code=404))
 
 
 @get("/persons/{id}")
 async def persons(id: str) -> Response:
     """
-    Gets a Person by its id
+    Gets a Person by its id.
     """
     try:
         print(f"\nGetting Person by id {id}...")
@@ -78,13 +83,13 @@ async def persons(id: str) -> Response:
         
         return ok(message=custom_response(data=person, details=successful_message(), message="Ok", status_code=200))
     except Exception as e:
-        raise InternalServerError(message=custom_response(data=None, details=internal_server_error_message(ex=e), message="Internal Server Error", status_code=500))
+        return bad_request(message=custom_response(data=person, details=bad_request_message(ex=e), message="Bad Request", status_code=400))
 
 
 @post("/persons")
-async def persons(req: FromJSON[PersonModelPostRequest]) -> Response:
+async def persons(req: FromJSON[PersonPostModel]) -> Response:
     """
-    Creates a new Person
+    Creates a new Person.
     """
     try:
         print("\nCreating new Person...")
@@ -98,18 +103,37 @@ async def persons(req: FromJSON[PersonModelPostRequest]) -> Response:
             # Set modified to the same value as created
             person.datetime_modified = person.datetime_created
 
+        person.events = []
+
         await person.save().run()
         created_person = await Person.select().where(person.id==Person.id).first()
         
         if not created_person:
-            raise not_found(message=custom_response(data=person, details=not_found_by_id_message(ent='Person', id=person.id), message="Not Found", status_code=404))
+            return not_found(message=custom_response(data=person, details=not_found_by_id_message(ent='Person', id=person.id), message="Not Found", status_code=404))
+
+        # # TODO: Move to a service layer
+        # # 👇 Logic to add 'signup' event to newly-created Person
+        # print(f"\nCreating signup Event for Person with id {created_person.id} and role {created_person.role}...")
+        # events = []
+        # signup_event = Event(
+        #     id = uuid.uuid4(),
+        #     datetime_created = datetime.utcnow(),
+        #     event_type = EventType.SIGNUP,
+        #     person_id = person.id
+        # )
+
+        # print(f"\n >>> signup_event >>> {signup_event}")
+        # events.append(signup_event)
+        # await signup_event.save().run()
+        # created_person.events = events
+        # print(f"\n >>> created_person >>> {created_person}")
 
         return ok(message=custom_response(data=created_person, details=successful_message(), message="Ok", status_code=201))
     except Exception as e:
-        raise bad_request(message=custom_response(data=None, details=not_created_message(ent='Person', ex=e), message="Bad Request", status_code=400))
+        return bad_request(message=custom_response(data=None, details=not_created_message(ent='Person', ex=e), message="Bad Request", status_code=400))
     
 @put("/persons/{id}")
-async def persons(id: str, req: FromJSON[PersonModelPutRequest]) -> Response:
+async def persons(id: str, req: FromJSON[PersonPutModel]) -> Response:
     """
     Updates an existing Person with the data from the request
     """
@@ -117,7 +141,8 @@ async def persons(id: str, req: FromJSON[PersonModelPutRequest]) -> Response:
         print(f"\nEditing Person with id {id}...")
 
         request_id = req.value.dict()['id']
-        if id is not request_id:
+        # 👇 Ensure the ids in the route and request body match
+        if id != str(request_id):
             return bad_request(message=custom_response(data=None, details=route_request_mismatch_message(id=id, request_id=request_id), message="Bad Request", status_code=400))
 
         await Person.update(**req.value.dict()).where(id==Person.id).run()
@@ -135,18 +160,16 @@ async def persons(id: str, req: FromJSON[PersonModelPutRequest]) -> Response:
 
 
 @delete("/persons/{id}")
-async def persons(id: str, req: FromJSON[PersonModelDeleteRequest]) -> Response:
+async def persons(id: str, req: FromJSON[PersonDeleteModel]) -> Response:
     """
     Deletes a Person from the database
     """
 
     try:
         request_id = req.value.dict()['id']
-        # TODO: The route and request body should be checked the same way here as in the PUT but that isn't the case. Currently the item is deleted based solely on the existence of the id in the route.
-        # This is necessary because the types are different for the id and request_id even when their string counterpart is the same:
-        # print(f"\n type id >>> {id} \n type request_id >>> {request_id}")
-        # if id is not request_id:
-        #     return bad_request(message=custom_response(data=None, details=route_request_mismatch_message(id=id, request_id=request_id), message="Bad Request", status_code=400))
+        # 👇 Ensure the ids in the route and request body match
+        if id != str(request_id):
+            return bad_request(message=custom_response(data=None, details=route_request_mismatch_message(id=id, request_id=request_id), message="Bad Request", status_code=400))
         
         print(f"\nGetting Person by id {id}...")
         person = await Person.select().where(id==Person.id).first()
@@ -159,7 +182,120 @@ async def persons(id: str, req: FromJSON[PersonModelDeleteRequest]) -> Response:
         return ok(message=custom_response(data=None, details=successful_message(), message="Ok", status_code=200))
 
     except Exception as e:
-        return bad_request(message=custom_response(data=None, details=route_request_mismatch_message(id=id, request_id=request_id), message="Bad Request", status_code=400))
+        return bad_request(message=custom_response(data=person, details=f"{route_request_mismatch_message(id=id, request_id=request_id)} Details: {e}", message="Bad Request", status_code=400))
+
+# -------------------------------------------------------------------------------------------
+
+# TODO: Add search params for event id and person_id
+@get("/events")
+async def events(search: Optional[FromQuery[str]]) -> Response:
+    """
+    Gets a list of all Events
+    """
+
+    try:
+        print(f"\nGetting a list of all Events...")
+        events = await Event.select()
+        print(f"\n search >>> {search}")
+        if not events:
+            # 💡 This 'successfully returned no data in array' situation might be really annoying for UI development,
+            # especially if array operations are involved. It might be easier to throw an error instead.
+            return ok(message=custom_response(data=events, details="The request was successful, however, there are no items in the database to retrieve.", message="Ok", status_code=200))
+        return ok(message=custom_response(data=events, details=successful_message(), message="Ok", status_code=200))
+    except Exception as e:
+        return not_found(message=custom_response(data=events, details=not_found_message(ex=e), message="Not Found", status_code=404))
+
+
+@get("/events/{id}")
+async def events(id: str) -> Response:
+    """
+    Gets an Event by its id.
+    """
+    try:
+        print(f"\nGetting Event by id {id}...")
+        event = await Event.select().where(id==Event.id).first()
+
+        if not event:
+            return not_found(message=custom_response(data=event, details=not_found_by_id_message(ent='Event', id=id), message="Not Found", status_code=404))
+        
+        return ok(message=custom_response(data=event, details=successful_message(), message="Ok", status_code=200))
+    except Exception as e:
+        return bad_request(message=custom_response(data=event, details=bad_request_message(ex=e), message="Bad Request", status_code=400))
+
+
+@post("/events")
+async def events(req: FromJSON[EventPostModel]) -> Response:
+    """
+    Creates a new Event.
+    """
+
+    try:
+        print("\nCreating new Event...")
+        event = Event(**req.value.dict())
+
+        if event.id is None:
+            event.id = uuid.uuid4()
+
+        if event.datetime_created is None:
+            event.datetime_created = datetime.utcnow()
+
+    #     # 👇 Check that the person_id in the request actually exists on a person before trying to attach an event to it
+        print(f"\Confirming that a Person with id {event.person_id} exists...")
+        person = await Person.select().where(event.person_id==Person.id).first().output(load_json=True)
+        if not person:
+            return not_found(message=custom_response(data=person, details=not_found_by_id_message(ent='Person', id=event.id), message="Not Found", status_code=404))
+        
+        # TODO
+        # # 👇 Check event_type and confirm that if the requested event_type is 'signup', this type doesn't already exist for the person ('signup' should only be stored once for a Person)
+        # person_with_signup_event = await Person.select(Event.event_type.arrow("signup")).where(event.person_id==Person.id).first().output(load_json=True)
+        # print(f"\n e in person_with_signup_event >>> {person_with_signup_event}")
+        # if person_with_signup_event is EventType.SIGNUP and event.event_type is EventType.SIGNUP:
+        #     # Should this be 409 Conflict?
+        #     return bad_request(message="An event type of 'signup' cannot be added to a Person with an existing 'signup' event type.")
+
+        serializable_event = Event(
+            id=event.id,
+            datetime_created = event.datetime_created,
+            event_type=req.value.dict()['event_type'],
+            person_id=req.value.dict()['person_id']
+        )
+
+        await serializable_event.save().run()
+
+        # TODO: This still needs to be joined to the Person
+        created_event = await Event.select().where(event.id==Event.id).first()
+        if not created_event:
+            return not_found(message=custom_response(data=serializable_event, details=not_found_by_id_message(ent='Event', id=event.id), message="Not Found", status_code=404))
+
+        return ok(message=custom_response(data=created_event, details=successful_message(), message="Ok", status_code=201))
+    except Exception as e:
+        return bad_request(message=custom_response(data=event, details=not_created_message(ent='Event', ex=e), message="Bad Request", status_code=400))
+
+
+@delete("/events/{id}")
+async def events(id: str, req: FromJSON[EventDeleteModel]) -> Response:
+    """
+    Deletes a Event from the database
+    """
+
+    try:
+        request_id = req.value.dict()['id']
+        # 👇 Ensure the ids in the route and request body match
+        if id != str(request_id):
+            return bad_request(message=custom_response(data=None, details=route_request_mismatch_message(id=id, request_id=request_id), message="Bad Request", status_code=400))
+        
+        print(f"\nGetting Event by id {id}...")
+        event = await Event.select().where(id==Event.id).first()
+
+        if not event:
+            return not_found(message=custom_response(data=event, details=not_found_by_id_message(ent='Event', id=id), message="Not Found", status_code=404))
+
+        print(f"\nDeleting Event with id {id}...")
+        await Event.delete().where(id==Event.id).run()
+        return ok(message=custom_response(data=None, details=successful_message(), message="Ok", status_code=200))
+
+    except Exception as e:
+        return bad_request(message=custom_response(data=event, details=f"{route_request_mismatch_message(id=id, request_id=request_id)} Details: {e}", message="Bad Request", status_code=400))
 
 # -------------------------------------------------------------------------------------------
 
@@ -171,6 +307,7 @@ async def open_database_connection_pool(application):
         engine = engine_finder()
         await engine.start_connection_pool()
         await Person.create_table(if_not_exists=True)
+        await Event.create_table(if_not_exists=True)
     except Exception as e:
         print(f"Unable to connect to the database. Details: \n{e}")
 
