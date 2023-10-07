@@ -1,22 +1,22 @@
-from typing import Optional
-from blacksheep import Application, FromJSON, FromQuery, Response, bad_request, not_found, ok
-from blacksheep.exceptions import InternalServerError
-from blacksheep.server.openapi.v3 import OpenAPIHandler
 from .constants import *
-from datetime import datetime
-from api.db.tables.person import Person
-from api.db.tables.event import Event
-from dotenv import load_dotenv
 from .models import (
+    EventDeleteModel,
+    EventPostModel,
     PersonDeleteModel,
     PersonPostModel,
     PersonPutModel,
-    EventDeleteModel,
-    EventPostModel
 )
+from api.db.tables.event import Event
+from api.db.tables.person import Person
+from blacksheep import Application, FromJSON, FromQuery, Response, bad_request, not_found, ok
+from blacksheep.exceptions import InternalServerError
+from blacksheep.server.openapi.v3 import OpenAPIHandler
+from datetime import datetime
+from dotenv import load_dotenv
 from openapidocs.v3 import Info
-import os
 from piccolo.engine import engine_finder
+from typing import Optional
+import os
 import uuid
 
 load_dotenv()
@@ -188,22 +188,29 @@ async def persons(id: str, req: FromJSON[PersonDeleteModel]) -> Response:
 
 # TODO: Add search params for event id and person_id
 @get("/events")
-async def events(search: Optional[FromQuery[str]]) -> Response:
+async def events(keyword: Optional[FromQuery[str]]) -> Response:
     """
     Gets a list of all Events
     """
 
     try:
         print(f"\nGetting a list of all Events...")
-        events = await Event.select()
-        print(f"\n search >>> {search}")
-        if not events:
+        if not keyword:
+            events = await Event.select()
+            if not events:
+                # 💡 This 'successfully returned no data in array' situation might be really annoying for UI development,
+                # especially if array operations are involved. It might be easier to throw an error instead.
+                return ok(message=custom_response(data=events, details="The request was successful, however, there are no items in the database to retrieve.", message="Ok", status_code=200))
+            return ok(message=custom_response(data=events, details=successful_message(), message="Ok", status_code=200))
+
+        events_search = await Event.select().where(keyword.value == Event.event_type).run()
+        if not events_search:
             # 💡 This 'successfully returned no data in array' situation might be really annoying for UI development,
             # especially if array operations are involved. It might be easier to throw an error instead.
-            return ok(message=custom_response(data=events, details="The request was successful, however, there are no items in the database to retrieve.", message="Ok", status_code=200))
-        return ok(message=custom_response(data=events, details=successful_message(), message="Ok", status_code=200))
+            return ok(message=custom_response(data=events_search, details="The request was successful, however, there are no items in the database to retrieve.", message="Ok", status_code=200))
+        return ok(message=custom_response(data=events_search, details=successful_message(), message="Ok", status_code=200))
     except Exception as e:
-        return not_found(message=custom_response(data=events, details=not_found_message(ex=e), message="Not Found", status_code=404))
+        return not_found(message=custom_response(data=None, details=not_found_message(ent='Event', ex=e), message="Not Found", status_code=404))    
 
 
 @get("/events/{id}")

@@ -171,13 +171,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/persons/a22aeae0-7af3-4465-adb5-7b4991edd7a7",
+							"raw": "{{base_url}}/persons/7f7fb0b6-3742-4e3e-83ff-82416d07b086",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"persons",
-								"a22aeae0-7af3-4465-adb5-7b4991edd7a7"
+								"7f7fb0b6-3742-4e3e-83ff-82416d07b086"
 							]
 						}
 					},
@@ -525,7 +525,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"\",\n    \"first_name\": \"\",\n    \"last_name\": \"\"\n}",
+							"raw": "{\n    \"email\": \"\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    // Valid roles are 'user' and 'admin'\n    \"role\": \"\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -551,7 +551,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"bea58cbf-0b80-4564-be18-29e258468f2e\",\n    \"email\": \"Scott.Summers@test.mock\",\n    \"events\": [],\n    \"first_name\": \"Scott\",\n    \"last_name\": \"Summers\",\n    \"role\": \"admin\"\n}",
+							"raw": "{\n    \"id\": \"7f7fb0b6-3742-4e3e-83ff-82416d07b086\",\n    \"email\": \"Jean.Grey@phoenix.mock\",\n    \"events\": [],\n    \"first_name\": \"Jean\",\n    \"last_name\": \"Grey\",\n    \"role\": \"admin\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -559,13 +559,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/persons/bea58cbf-0b80-4564-be18-29e258468f2e",
+							"raw": "{{base_url}}/persons/7f7fb0b6-3742-4e3e-83ff-82416d07b086",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"persons",
-								"bea58cbf-0b80-4564-be18-29e258468f2e"
+								"7f7fb0b6-3742-4e3e-83ff-82416d07b086"
 							]
 						}
 					},
@@ -677,7 +677,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"7c56a5bc-6037-432f-bd4e-3606a744fcf4\"\n}",
+							"raw": "{\n    \"id\": \"0fcf3634-9b0c-4ceb-ab53-7ba8edf3d5fa\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -685,66 +685,17 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/persons/e6919a4d-055d-4c79-a44a-98a888c050bc",
+							"raw": "{{base_url}}/persons/0fcf3634-9b0c-4ceb-ab53-7ba8edf3d5fa",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"persons",
-								"e6919a4d-055d-4c79-a44a-98a888c050bc"
+								"0fcf3634-9b0c-4ceb-ab53-7ba8edf3d5fa"
 							]
 						}
 					},
 					"response": [
-						{
-							"name": "400 | Bad Request (ids in route and body are mismatched)",
-							"originalRequest": {
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"id\": \"2fa9a333-c406-4764-8768-3e85a5bf28e0\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/persons/2fa9a333-c406-4764-8768-3e85a5bf28e0",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"persons",
-										"2fa9a333-c406-4764-8768-3e85a5bf28e0"
-									]
-								}
-							},
-							"status": "Bad Request",
-							"code": 400,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "date",
-									"value": "Thu, 05 Oct 2023 04:49:05 GMT"
-								},
-								{
-									"key": "server",
-									"value": "uvicorn"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json"
-								},
-								{
-									"key": "content-length",
-									"value": "259"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": null,\n    \"response\": {\n        \"details\": \"The id in the route (2fa9a333-c406-4764-8768-3e85a5bf28e0) does not match the id in the request body (334c3a1b-c62f-4c2c-a14a-e83ea522f146). Please ensure the ids match and try again.\",\n        \"message\": \"Bad Request\",\n        \"status\": 400\n    }\n}"
-						},
 						{
 							"name": "200 |Ok",
 							"originalRequest": {
@@ -793,6 +744,55 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": null,\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+						},
+						{
+							"name": "400 | Bad Request (ids in route and body are mismatched)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"2fa9a333-c406-4764-8768-3e85a5bf28e0\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/persons/2fa9a333-c406-4764-8768-3e85a5bf28e0",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"persons",
+										"2fa9a333-c406-4764-8768-3e85a5bf28e0"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 05 Oct 2023 04:49:05 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "259"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"response\": {\n        \"details\": \"The id in the route (2fa9a333-c406-4764-8768-3e85a5bf28e0) does not match the id in the request body (334c3a1b-c62f-4c2c-a14a-e83ea522f146). Please ensure the ids match and try again.\",\n        \"message\": \"Bad Request\",\n        \"status\": 400\n    }\n}"
 						},
 						{
 							"name": "404 | Not Found",
@@ -856,7 +856,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/events?search=\"signup\"",
+							"raw": "{{base_url}}/events?keyword=submitted_feedback",
 							"host": [
 								"{{base_url}}"
 							],
@@ -865,8 +865,8 @@
 							],
 							"query": [
 								{
-									"key": "search",
-									"value": "\"signup\""
+									"key": "keyword",
+									"value": "submitted_feedback"
 								}
 							]
 						}
@@ -1039,6 +1039,51 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": [],\n    \"response\": {\n        \"details\": \"The request was successful, however, there are no items in the database to retrieve.\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+						},
+						{
+							"name": "200 | Search by keyword",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/events?search=a5b9abc9-8367-4a1e-8b14-c21840c37262",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"events"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "a5b9abc9-8367-4a1e-8b14-c21840c37262"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 06 Oct 2023 19:38:14 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "256"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"a5b9abc9-8367-4a1e-8b14-c21840c37262\",\n            \"datetime_created\": \"2023-10-06T10:53:02.415559\",\n            \"event_type\": \"click\",\n            \"person_id\": \"049bb5dd-91d2-464e-b049-07da3e8d2627\"\n        }\n    ],\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
 						}
 					]
 				},
@@ -1059,46 +1104,6 @@
 						}
 					},
 					"response": [
-						{
-							"name": "404 | Not Found",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/events/bb49e97c-3007-4b97-85fe-cead37ecb825",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"events",
-										"bb49e97c-3007-4b97-85fe-cead37ecb825"
-									]
-								}
-							},
-							"status": "Not Found",
-							"code": 404,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "date",
-									"value": "Thu, 05 Oct 2023 21:46:46 GMT"
-								},
-								{
-									"key": "server",
-									"value": "uvicorn"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json"
-								},
-								{
-									"key": "content-length",
-									"value": "214"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": null,\n    \"response\": {\n        \"details\": \"The Event with `id` bb49e97c-3007-4b97-85fe-cead37ecb825 could not be found. Please ensure the `id` in your request is correct and try again\",\n        \"message\": \"Not Found\",\n        \"status\": 404\n    }\n}"
-						},
 						{
 							"name": "200 | Ok",
 							"originalRequest": {
@@ -1138,6 +1143,46 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": {\n        \"id\": \"62701308-809d-4302-b345-92ca72285194\",\n        \"datetime_created\": \"2023-10-06T08:44:23.125253\",\n        \"event_type\": \"signup\",\n        \"person_id\": \"049bb5dd-91d2-464e-b049-07da3e8d2627\"\n    },\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+						},
+						{
+							"name": "404 | Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/events/bb49e97c-3007-4b97-85fe-cead37ecb825",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"events",
+										"bb49e97c-3007-4b97-85fe-cead37ecb825"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 05 Oct 2023 21:46:46 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "214"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"response\": {\n        \"details\": \"The Event with `id` bb49e97c-3007-4b97-85fe-cead37ecb825 could not be found. Please ensure the `id` in your request is correct and try again\",\n        \"message\": \"Not Found\",\n        \"status\": 404\n    }\n}"
 						}
 					]
 				},
@@ -1208,7 +1253,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"event_type\": \"{{event_type}}\",\n    \"person_id\": \"bb49e97c-3007-4b97-85fe-cead37ecb825\"\n}",
+							"raw": "{\n    \"event_type\": \"{{event_type}}\",\n    \"person_id\": \"2ecfeffa-15b5-4da4-9603-12c4c0ba1c76\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
