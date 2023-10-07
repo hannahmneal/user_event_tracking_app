@@ -2,10 +2,7 @@ from api.db.tables.person import Person
 from enum import Enum
 from piccolo.columns import Column, ForeignKey, Timestamp, UUID, Varchar
 from piccolo.table import Table
-from pydantic import BaseModel, Field
-import datetime
 import json
-import uuid
 
 # With the exception of the 'id' column, table columns are organized alphabetically
 
@@ -21,14 +18,7 @@ class EventType(Enum):
     # 👇 Use this for manually adding/associating an event with a user for demo purposes
     SUBMITTED_FEEDBACK = "submitted_feedback" 
 
-class EventSchema(BaseModel):
-    id: uuid.UUID = Field(description="The id (primary key) of the Event.")
-    datetime_created: datetime.datetime = Field(description="The datetime the Event was created (or, when the event occurred).")
-    event_type: EventType = Field(description="The type of Event. Valid options are: 'click', 'signup', and 'submitted_feedback'.")
-    person_id: uuid.UUID = Field(description="The id of the Person for whom this Event occurred (i.e., the id of the Person this Event is associated with).")
-
-
-class Event(Table, help_text="Represents an Event associated with a Person", schema=EventSchema):
+class Event(Table, help_text="Represents an Event associated with a Person"):
     """
     Represents a (client-side) Event associated with a Person.
     """

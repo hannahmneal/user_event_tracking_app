@@ -12,7 +12,6 @@ PersonDeleteModel: Any = create_pydantic_model(
 
 # 👇 A pydantic model in a 'edit person' request shape
 PersonPutModel: Any = create_pydantic_model(
-    exclude_columns=(Person.datetime_created, Person.datetime_modified),
     include_default_columns=True,
     model_name="PersonPutModel",
     table=Person,

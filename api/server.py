@@ -8,16 +8,18 @@ from .models import (
 )
 from api.db.tables.event import Event
 from api.db.tables.person import Person
-from blacksheep import Application, FromJSON, FromQuery, Response, bad_request, not_found, ok
+from blacksheep import Application, FromJSON, FromQuery, Request, Response, bad_request, not_found, ok
 from blacksheep.exceptions import InternalServerError
 from blacksheep.server.openapi.v3 import OpenAPIHandler
 from datetime import datetime
 from dotenv import load_dotenv
 from openapidocs.v3 import Info
 from piccolo.engine import engine_finder
+from piccolo.columns.combination import Or
 from typing import Optional
 import os
 import uuid
+import json
 
 load_dotenv()
 
@@ -132,31 +134,49 @@ async def persons(req: FromJSON[PersonPostModel]) -> Response:
     except Exception as e:
         return bad_request(message=custom_response(data=None, details=not_created_message(ent='Person', ex=e), message="Bad Request", status_code=400))
     
-@put("/persons/{id}")
-async def persons(id: str, req: FromJSON[PersonPutModel]) -> Response:
-    """
-    Updates an existing Person with the data from the request
-    """
-    try:
-        print(f"\nEditing Person with id {id}...")
 
-        request_id = req.value.dict()['id']
-        # 👇 Ensure the ids in the route and request body match
-        if id != str(request_id):
-            return bad_request(message=custom_response(data=None, details=route_request_mismatch_message(id=id, request_id=request_id), message="Bad Request", status_code=400))
+# 🚧 Under Construction 🚧
+# @put("/persons/{id}")
+# # async def persons(id: str, req: FromJSON[PersonPutModel]) -> Response:
+# async def persons(id: str, req: FromJSON) -> Response:
+#     """
+#     Updates an existing Person with the data from the request
+#     """
+#     try:
+#         print(f"\nEditing Person with id {id}...")
 
-        await Person.update(**req.value.dict()).where(id==Person.id).run()
+#         testjson = {
+#             "id": "f20b54f1-7a29-4bc9-83bb-80679c6c8d88",
+#             "datetime_created": "2023-10-07T03:34:06.833804",
+#             "event_type": "signup",
+#             "person_id": "8817e743-389b-45ec-9b97-df2795a1347a"
+#         }
 
-        print(f"\nGetting Person by id {id}...")
-        edited_person = await Person.select().where(id==Person.id).first()
+#         print(f"\n >>> req >>> {req}")
+#         # print(f"\n >>> req.value >>> {req.value}")
+#         print(f"\n >>> testjson >>> {json.JSONEncoder.encode(testjson)}")
+#         # print(f"\n >>> req >>> {json.JSONEncoder.encode(req.value)}")
+#         # print(f"\n >>> req >>> {json.JSONEncoder.encode(req.value)}")
+#         # print(f"\n >>> req >>> {json.JSONDecoder.decode(req.value)}")
+#         # print(f"\n >>> req >>> {json.loads(req.value)}")
+#         request_id = req.value.dict()['id']
+#         # 👇 Ensure the ids in the route and request body match
+#         # if id != str(request_id):
+#         if id != request_id:
+#             return bad_request(message=custom_response(data=None, details=route_request_mismatch_message(id=id, request_id=request_id), message="Bad Request", status_code=400))
 
-        if not edited_person:
-            return not_found(message=custom_response(data=edited_person, details=not_found_by_id_message(ent='Person', id=id), message="Not Found", status_code=404))
+#         await Person.update(**req.value.dict()).where(id==Person.id).run()
 
-        return ok(message=custom_response(data=edited_person, details=successful_message(), message="Ok", status_code=200))
+#         print(f"\nGetting Person by id {id}...")
+#         edited_person = await Person.select().where(id==Person.id).first()
 
-    except Exception as e:
-        raise InternalServerError(message=custom_response(data=None, details=internal_server_error_message(ex=e), message="Internal Server Error", status_code=500))
+#         if not edited_person:
+#             return not_found(message=custom_response(data=edited_person, details=not_found_by_id_message(ent='Person', id=id), message="Not Found", status_code=404))
+
+#         return ok(message=custom_response(data=edited_person, details=successful_message(), message="Ok", status_code=200))
+
+#     except Exception as e:
+#         raise InternalServerError(message=custom_response(data=None, details=internal_server_error_message(ex=e), message="Internal Server Error", status_code=500))
 
 
 @delete("/persons/{id}")
@@ -186,9 +206,8 @@ async def persons(id: str, req: FromJSON[PersonDeleteModel]) -> Response:
 
 # -------------------------------------------------------------------------------------------
 
-# TODO: Add search params for event id and person_id
 @get("/events")
-async def events(keyword: Optional[FromQuery[str]]) -> Response:
+async def events(keyword: Optional[FromQuery[str]], person_id: Optional[FromQuery[uuid.UUID]]) -> Response:
     """
     Gets a list of all Events
     """
@@ -196,14 +215,14 @@ async def events(keyword: Optional[FromQuery[str]]) -> Response:
     try:
         print(f"\nGetting a list of all Events...")
         if not keyword:
-            events = await Event.select()
+            events = await Event.select(Event.all_columns())
             if not events:
                 # 💡 This 'successfully returned no data in array' situation might be really annoying for UI development,
                 # especially if array operations are involved. It might be easier to throw an error instead.
                 return ok(message=custom_response(data=events, details="The request was successful, however, there are no items in the database to retrieve.", message="Ok", status_code=200))
             return ok(message=custom_response(data=events, details=successful_message(), message="Ok", status_code=200))
 
-        events_search = await Event.select().where(keyword.value == Event.event_type).run()
+        events_search = await Event.select().where(Or(keyword.value == Event.event_type, person_id == Event.person_id)).run()
         if not events_search:
             # 💡 This 'successfully returned no data in array' situation might be really annoying for UI development,
             # especially if array operations are involved. It might be easier to throw an error instead.
