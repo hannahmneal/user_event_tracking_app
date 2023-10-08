@@ -168,7 +168,7 @@ Response:
         "datetime_modified": "2023-10-06T02:39:56.366948",
         "email": "kate.pryde@marauders.mock",
         "events": [],
-        "first_name": "Kae",
+        "first_name": "Kate",
         "last_name": "Pryde",
         "role": "admin"
     },

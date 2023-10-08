@@ -12,6 +12,7 @@ PersonDeleteModel: Any = create_pydantic_model(
 
 # 👇 A pydantic model in a 'edit person' request shape
 PersonPutModel: Any = create_pydantic_model(
+    deserialize_json=True,
     include_default_columns=True,
     model_name="PersonPutModel",
     table=Person,
@@ -20,6 +21,7 @@ PersonPutModel: Any = create_pydantic_model(
 # 👇 A pydantic model in a 'create person' request shape 
 PersonPostModel: Any = create_pydantic_model(
     all_optional=True,
+    deserialize_json=True,
     include_default_columns=False,
     model_name="PersonPostModel",
     table=Person,

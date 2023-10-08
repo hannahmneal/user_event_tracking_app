@@ -67,7 +67,7 @@
 							"header": [
 								{
 									"key": "date",
-									"value": "Fri, 06 Oct 2023 02:58:44 GMT"
+									"value": "Sun, 08 Oct 2023 02:36:22 GMT"
 								},
 								{
 									"key": "server",
@@ -79,11 +79,11 @@
 								},
 								{
 									"key": "content-length",
-									"value": "1091"
+									"value": "1741"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": [\n        {\n            \"id\": \"e67e0a09-b4bf-465b-9490-a1f284d2d090\",\n            \"datetime_created\": \"2023-10-06T02:39:56.366948\",\n            \"datetime_modified\": \"2023-10-06T02:39:56.366948\",\n            \"email\": \"Effie.Abshire@test.mock\",\n            \"events\": [],\n            \"first_name\": \"Effie\",\n            \"last_name\": \"Abshire\",\n            \"role\": \"user\"\n        },\n        {\n            \"id\": \"3ebec32b-49bb-455e-a0ae-8fbf6c440581\",\n            \"datetime_created\": \"2023-10-06T02:41:02.502941\",\n            \"datetime_modified\": \"2023-10-06T02:41:02.502941\",\n            \"email\": \"Rosamond.Luettgen@test.mock\",\n            \"events\": [],\n            \"first_name\": \"Rosamond\",\n            \"last_name\": \"Luettgen\",\n            \"role\": \"admin\"\n        },\n        {\n            \"id\": \"55e6face-788d-43f0-ae6e-dd32dff6d8bd\",\n            \"datetime_created\": \"2023-10-06T02:41:06.875797\",\n            \"datetime_modified\": \"2023-10-06T02:41:06.875797\",\n            \"email\": \"Daphne.Buckridge@test.mock\",\n            \"events\": [],\n            \"first_name\": \"Daphne\",\n            \"last_name\": \"Buckridge\",\n            \"role\": \"admin\"\n        },\n        {\n            \"id\": \"bea58cbf-0b80-4564-be18-29e258468f2e\",\n            \"datetime_created\": \"2023-10-06T02:41:08.307449\",\n            \"datetime_modified\": \"2023-10-05T21:56:47.467118\",\n            \"email\": \"Scott.Summers@test.mock\",\n            \"events\": [],\n            \"first_name\": \"Scott\",\n            \"last_name\": \"Summers\",\n            \"role\": \"admin\"\n        }\n    ],\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"b44b960b-525b-4340-8d93-38194568f97c\",\n            \"datetime_created\": \"2023-10-07T23:36:06.539599\",\n            \"datetime_modified\": \"2023-10-07T23:36:06.539599\",\n            \"email\": \"Adeline.Boyle@test.mock\",\n            \"events\": [],\n            \"first_name\": \"Adeline\",\n            \"last_name\": \"Boyle\",\n            \"role\": \"admin\"\n        },\n        {\n            \"id\": \"b4c5736e-828d-451c-a168-4faee969a6f7\",\n            \"datetime_created\": \"2023-10-07T23:36:08.293702\",\n            \"datetime_modified\": \"2023-10-07T23:36:08.293702\",\n            \"email\": \"Adalberto.Hyatt@test.mock\",\n            \"events\": [],\n            \"first_name\": \"Adalberto\",\n            \"last_name\": \"Hyatt\",\n            \"role\": \"user\"\n        },\n        {\n            \"id\": \"42c40062-3644-4d23-a44e-27e3a14c09eb\",\n            \"datetime_created\": \"2023-10-07T23:36:09.105834\",\n            \"datetime_modified\": \"2023-10-07T23:36:09.105834\",\n            \"email\": \"Tiara.Simonis@test.mock\",\n            \"events\": [],\n            \"first_name\": \"Tiara\",\n            \"last_name\": \"Simonis\",\n            \"role\": \"admin\"\n        },\n        {\n            \"id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\",\n            \"datetime_created\": \"2023-10-07T23:36:07.478145\",\n            \"datetime_modified\": \"2023-10-07T19:24:37.085629\",\n            \"email\": \"Jean.Grey@phoenix.mock\",\n            \"events\": [\n                {\n                    \"id\": \"5d114a9c-9dab-4ceb-8c8e-25fe30b4f099\",\n                    \"person_id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\",\n                    \"event_type\": \"click\",\n                    \"datetime_created\": \"2023-10-07T23:36:54.430671\"\n                },\n                {\n                    \"id\": \"d8b769c7-aa0b-4ddc-b63e-42fdbaa3981e\",\n                    \"person_id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\",\n                    \"event_type\": \"click\",\n                    \"datetime_created\": \"2023-10-07T23:36:55.224951\"\n                },\n                {\n                    \"id\": \"d156191e-f073-45f6-9031-c4b323fa1666\",\n                    \"person_id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\",\n                    \"event_type\": \"signup\",\n                    \"datetime_created\": \"2023-10-07T23:36:56.114097\"\n                },\n                {\n                    \"id\": \"3669c226-b6ca-4275-a68a-d447ca15cf88\",\n                    \"person_id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\",\n                    \"event_type\": \"signup\",\n                    \"datetime_created\": \"2023-10-07T23:36:56.935621\"\n                }\n            ],\n            \"first_name\": \"Jean\",\n            \"last_name\": \"Grey\",\n            \"role\": \"admin\"\n        }\n    ],\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
 						},
 						{
 							"name": "200 | No items in the database but the request is successful",
@@ -171,13 +171,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/persons/7f7fb0b6-3742-4e3e-83ff-82416d07b086",
+							"raw": "{{base_url}}/persons/9f5e7b72-3268-44c0-b5a7-98fed5b8d740",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"persons",
-								"7f7fb0b6-3742-4e3e-83ff-82416d07b086"
+								"9f5e7b72-3268-44c0-b5a7-98fed5b8d740"
 							]
 						}
 					},
@@ -188,13 +188,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/persons/bea58cbf-0b80-4564-be18-29e258468f2e",
+									"raw": "{{base_url}}/persons/40a349f1-35d7-48d7-aa09-bb0afdd35e3e",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"persons",
-										"bea58cbf-0b80-4564-be18-29e258468f2e"
+										"40a349f1-35d7-48d7-aa09-bb0afdd35e3e"
 									]
 								}
 							},
@@ -204,7 +204,7 @@
 							"header": [
 								{
 									"key": "date",
-									"value": "Fri, 06 Oct 2023 02:57:49 GMT"
+									"value": "Sun, 08 Oct 2023 02:36:58 GMT"
 								},
 								{
 									"key": "server",
@@ -216,11 +216,11 @@
 								},
 								{
 									"key": "content-length",
-									"value": "335"
+									"value": "995"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"id\": \"bea58cbf-0b80-4564-be18-29e258468f2e\",\n        \"datetime_created\": \"2023-10-06T02:41:08.307449\",\n        \"datetime_modified\": \"2023-10-05T21:56:47.467118\",\n        \"email\": \"Scott.Summers@test.mock\",\n        \"events\": [],\n        \"first_name\": \"Scott\",\n        \"last_name\": \"Summers\",\n        \"role\": \"admin\"\n    },\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+							"body": "{\n    \"data\": {\n        \"id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\",\n        \"datetime_created\": \"2023-10-07T23:36:07.478145\",\n        \"datetime_modified\": \"2023-10-07T19:24:37.085629\",\n        \"email\": \"Jean.Grey@phoenix.mock\",\n        \"events\": [\n            {\n                \"id\": \"5d114a9c-9dab-4ceb-8c8e-25fe30b4f099\",\n                \"person_id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\",\n                \"event_type\": \"click\",\n                \"datetime_created\": \"2023-10-07T23:36:54.430671\"\n            },\n            {\n                \"id\": \"d8b769c7-aa0b-4ddc-b63e-42fdbaa3981e\",\n                \"person_id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\",\n                \"event_type\": \"click\",\n                \"datetime_created\": \"2023-10-07T23:36:55.224951\"\n            },\n            {\n                \"id\": \"d156191e-f073-45f6-9031-c4b323fa1666\",\n                \"person_id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\",\n                \"event_type\": \"signup\",\n                \"datetime_created\": \"2023-10-07T23:36:56.114097\"\n            },\n            {\n                \"id\": \"3669c226-b6ca-4275-a68a-d447ca15cf88\",\n                \"person_id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\",\n                \"event_type\": \"signup\",\n                \"datetime_created\": \"2023-10-07T23:36:56.935621\"\n            }\n        ],\n        \"first_name\": \"Jean\",\n        \"last_name\": \"Grey\",\n        \"role\": \"admin\"\n    },\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
 						},
 						{
 							"name": "404 | Not Found",
@@ -375,7 +375,7 @@
 									"    \"email\": `${pm.collectionVariables.get(\"person\").email}`,",
 									"    \"first_name\": `${pm.collectionVariables.get(\"person\").first_name}`,",
 									"    \"last_name\": `${pm.collectionVariables.get(\"person\").last_name}`,",
-									"    \"role\": `${pm.collectionVariables.get(\"person\").role}`",
+									"    \"role\": `${pm.collectionVariables.get(\"person\").role}`,",
 									"}",
 									"",
 									"const requestBodyStr = JSON.stringify(requestBody);",
@@ -439,7 +439,7 @@
 							"header": [
 								{
 									"key": "date",
-									"value": "Fri, 06 Oct 2023 02:39:55 GMT"
+									"value": "Sun, 08 Oct 2023 06:03:33 GMT"
 								},
 								{
 									"key": "server",
@@ -451,11 +451,11 @@
 								},
 								{
 									"key": "content-length",
-									"value": "334"
+									"value": "496"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"id\": \"e67e0a09-b4bf-465b-9490-a1f284d2d090\",\n        \"datetime_created\": \"2023-10-06T02:39:56.366948\",\n        \"datetime_modified\": \"2023-10-06T02:39:56.366948\",\n        \"email\": \"Effie.Abshire@test.mock\",\n        \"events\": [],\n        \"first_name\": \"Effie\",\n        \"last_name\": \"Abshire\",\n        \"role\": \"user\"\n    },\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 201\n    }\n}"
+							"body": "{\n    \"data\": {\n        \"id\": \"f4cc4f34-3f7c-4a0c-b333-df23f72ebc68\",\n        \"datetime_created\": \"2023-10-08T06:03:33.330037\",\n        \"datetime_modified\": \"2023-10-08T06:03:33.330037\",\n        \"email\": \"Max.Rolfson@test.mock\",\n        \"events\": [\n            {\n                \"id\": \"3b027982-2fe9-4491-a5a2-b504b0e2bb8d\",\n                \"datetime_created\": \"2023-10-08T06:03:33.334854\",\n                \"event_type\": \"signup\",\n                \"person_id\": \"f4cc4f34-3f7c-4a0c-b333-df23f72ebc68\"\n            }\n        ],\n        \"first_name\": \"Max\",\n        \"last_name\": \"Rolfson\",\n        \"role\": \"user\"\n    },\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 201\n    }\n}"
 						},
 						{
 							"name": "400 | Caught exception from bad request in the code itself",
@@ -551,7 +551,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"7f7fb0b6-3742-4e3e-83ff-82416d07b086\",\n    \"email\": \"Jean.Grey@phoenix.mock\",\n    \"events\": [],\n    \"first_name\": \"Jean\",\n    \"last_name\": \"Grey\",\n    \"role\": \"admin\"\n}",
+							"raw": "{\n    \"id\": \"9f5e7b72-3268-44c0-b5a7-98fed5b8d740\",\n    \"email\": \"scott.summers@themoon.mock\",\n    \"events\": [\n        {\n            \"id\": \"0323d885-13a9-460e-96ab-001afc534fcb\",\n            \"datetime_created\": \"2023-10-08T05:39:36.683119\",\n            \"event_type\": \"signup\",\n            \"person_id\": \"9f5e7b72-3268-44c0-b5a7-98fed5b8d740\"\n        },\n        {\n            \"id\": \"7b20a3bd-002b-4d58-941f-c79011ba3e1a\",\n            \"datetime_created\": \"2023-10-08T00:36:54.430671\",\n            \"event_type\": \"click\",\n            \"person_id\": \"9f5e7b72-3268-44c0-b5a7-98fed5b8d740\"\n        },\n        {\n            \"id\": \"d7584bb53-bef2-49c2-8490-8780c85d8744\",\n            \"datetime_created\": \"2023-10-08T00:58:55.224951\",\n            \"event_type\": \"click\",\n            \"person_id\": \"9f5e7b72-3268-44c0-b5a7-98fed5b8d740\"\n        }\n    ],\n    \"first_name\": \"Scott\",\n    \"last_name\": \"Summers\",\n    \"role\": \"admin\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -559,13 +559,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/persons/7f7fb0b6-3742-4e3e-83ff-82416d07b086",
+							"raw": "{{base_url}}/persons/9f5e7b72-3268-44c0-b5a7-98fed5b8d740",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"persons",
-								"7f7fb0b6-3742-4e3e-83ff-82416d07b086"
+								"9f5e7b72-3268-44c0-b5a7-98fed5b8d740"
 							]
 						}
 					},
@@ -577,7 +577,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": \"bea58cbf-0b80-4564-be18-29e258468f2e\",\n    \"email\": \"Scott.Summers@test.mock\",\n    \"events\": [],\n    \"first_name\": \"Scott\",\n    \"last_name\": \"Summers\",\n    \"role\": \"admin\"\n}",
+									"raw": "{\n    \"id\": \"9f5e7b72-3268-44c0-b5a7-98fed5b8d740\",\n    \"email\": \"scott.summers@themoon.mock\",\n    \"events\": [\n        {\n            \"id\": \"0323d885-13a9-460e-96ab-001afc534fcb\",\n            \"datetime_created\": \"2023-10-08T05:39:36.683119\",\n            \"event_type\": \"signup\",\n            \"person_id\": \"9f5e7b72-3268-44c0-b5a7-98fed5b8d740\"\n        },\n        {\n            \"id\": \"7b20a3bd-002b-4d58-941f-c79011ba3e1a\",\n            \"datetime_created\": \"2023-10-08T00:36:54.430671\",\n            \"event_type\": \"click\",\n            \"person_id\": \"9f5e7b72-3268-44c0-b5a7-98fed5b8d740\"\n        },\n        {\n            \"id\": \"d7584bb53-bef2-49c2-8490-8780c85d8744\",\n            \"datetime_created\": \"2023-10-08T00:58:55.224951\",\n            \"event_type\": \"click\",\n            \"person_id\": \"9f5e7b72-3268-44c0-b5a7-98fed5b8d740\"\n        }\n    ],\n    \"first_name\": \"Scott\",\n    \"last_name\": \"Summers\",\n    \"role\": \"admin\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -585,13 +585,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/persons/bea58cbf-0b80-4564-be18-29e258468f2e",
+									"raw": "{{base_url}}/persons/9f5e7b72-3268-44c0-b5a7-98fed5b8d740",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"persons",
-										"bea58cbf-0b80-4564-be18-29e258468f2e"
+										"9f5e7b72-3268-44c0-b5a7-98fed5b8d740"
 									]
 								}
 							},
@@ -601,7 +601,7 @@
 							"header": [
 								{
 									"key": "date",
-									"value": "Fri, 06 Oct 2023 02:56:51 GMT"
+									"value": "Sun, 08 Oct 2023 06:15:17 GMT"
 								},
 								{
 									"key": "server",
@@ -613,11 +613,11 @@
 								},
 								{
 									"key": "content-length",
-									"value": "335"
+									"value": "837"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"id\": \"bea58cbf-0b80-4564-be18-29e258468f2e\",\n        \"datetime_created\": \"2023-10-06T02:41:08.307449\",\n        \"datetime_modified\": \"2023-10-05T21:56:47.467118\",\n        \"email\": \"Scott.Summers@test.mock\",\n        \"events\": [],\n        \"first_name\": \"Scott\",\n        \"last_name\": \"Summers\",\n        \"role\": \"admin\"\n    },\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+							"body": "{\n    \"data\": {\n        \"id\": \"9f5e7b72-3268-44c0-b5a7-98fed5b8d740\",\n        \"datetime_created\": \"2023-10-08T05:39:36.671925\",\n        \"datetime_modified\": \"2023-10-08T00:57:48.993778\",\n        \"email\": \"scott.summers@themoon.mock\",\n        \"events\": [\n            {\n                \"id\": \"0323d885-13a9-460e-96ab-001afc534fcb\",\n                \"person_id\": \"9f5e7b72-3268-44c0-b5a7-98fed5b8d740\",\n                \"event_type\": \"signup\",\n                \"datetime_created\": \"2023-10-08T05:39:36.683119\"\n            },\n            {\n                \"id\": \"7b20a3bd-002b-4d58-941f-c79011ba3e1a\",\n                \"person_id\": \"9f5e7b72-3268-44c0-b5a7-98fed5b8d740\",\n                \"event_type\": \"click\",\n                \"datetime_created\": \"2023-10-08T00:36:54.430671\"\n            },\n            {\n                \"id\": \"d7584bb53-bef2-49c2-8490-8780c85d8744\",\n                \"person_id\": \"9f5e7b72-3268-44c0-b5a7-98fed5b8d740\",\n                \"event_type\": \"click\",\n                \"datetime_created\": \"2023-10-08T00:58:55.224951\"\n            }\n        ],\n        \"first_name\": \"Scott\",\n        \"last_name\": \"Summers\",\n        \"role\": \"admin\"\n    },\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
 						},
 						{
 							"name": "400 | Bad Request (ids in route and request do not match)",
@@ -667,6 +667,112 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": null,\n    \"response\": {\n        \"details\": \"The id in the route (9a8ed92e-219d-4a09-950f-964b9acf1f0f) does not match the id in the request body (5664cc13-bed8-4173-9900-bb3f10d2b7ee). Please ensure the ids match and try again.\",\n        \"message\": \"Bad Request\",\n        \"status\": 400\n    }\n}"
+						},
+						{
+							"name": "200 | Added event to person",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\",\n    \"email\": \"Jean.Grey@phoenix.mock\",\n    \"events\": [\n        {\n            \"id\": \"67186145-baac-4f76-aad4-1f0612a5c752\",\n            \"datetime_created\": \"2023-10-07T17:13:59.567243\",\n            \"event_type\": \"click\",\n            \"person_id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\"\n        }\n    ],\n    \"first_name\": \"Jean\",\n    \"last_name\": \"Grey\",\n    \"role\": \"admin\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/persons/40a349f1-35d7-48d7-aa09-bb0afdd35e3e",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"persons",
+										"40a349f1-35d7-48d7-aa09-bb0afdd35e3e"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "date",
+									"value": "Sat, 07 Oct 2023 23:37:57 GMT",
+									"type": "text"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn",
+									"type": "text"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "content-length",
+									"value": "520",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\",\n        \"datetime_created\": \"2023-10-07T23:36:07.478145\",\n        \"datetime_modified\": \"2023-10-07T18:35:54.614383\",\n        \"email\": \"Jean.Grey@phoenix.mock\",\n        \"events\": \"[{\\\"id\\\": \\\"67186145-baac-4f76-aad4-1f0612a5c752\\\", \\\"person_id\\\": \\\"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\\\", \\\"event_type\\\": \\\"click\\\", \\\"datetime_created\\\": \\\"2023-10-07T17:13:59.567243\\\"}]\",\n        \"first_name\": \"Jean\",\n        \"last_name\": \"Grey\",\n        \"role\": \"admin\"\n    },\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+						},
+						{
+							"name": "200 | Successfully linked events to person",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\",\n    \"email\": \"Jean.Grey@phoenix.mock\",\n    \"events\": [\n        {\n            \"id\": \"5d114a9c-9dab-4ceb-8c8e-25fe30b4f099\",\n            \"datetime_created\": \"2023-10-07T23:36:54.430671\",\n            \"event_type\": \"click\",\n            \"person_id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\"\n        },\n        {\n            \"id\": \"d8b769c7-aa0b-4ddc-b63e-42fdbaa3981e\",\n            \"datetime_created\": \"2023-10-07T23:36:55.224951\",\n            \"event_type\": \"click\",\n            \"person_id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\"\n        },\n        {\n            \"id\": \"d156191e-f073-45f6-9031-c4b323fa1666\",\n            \"datetime_created\": \"2023-10-07T23:36:56.114097\",\n            \"event_type\": \"signup\",\n            \"person_id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\"\n        },\n        {\n            \"id\": \"3669c226-b6ca-4275-a68a-d447ca15cf88\",\n            \"datetime_created\": \"2023-10-07T23:36:56.935621\",\n            \"event_type\": \"signup\",\n            \"person_id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\"\n        }\n    ],\n    \"first_name\": \"Jean\",\n    \"last_name\": \"Grey\",\n    \"role\": \"admin\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/persons/40a349f1-35d7-48d7-aa09-bb0afdd35e3e",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"persons",
+										"40a349f1-35d7-48d7-aa09-bb0afdd35e3e"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "date",
+									"value": "Sun, 08 Oct 2023 00:24:40 GMT",
+									"type": "text"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn",
+									"type": "text"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "content-length",
+									"value": "995",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\",\n        \"datetime_created\": \"2023-10-07T23:36:07.478145\",\n        \"datetime_modified\": \"2023-10-07T19:24:37.085629\",\n        \"email\": \"Jean.Grey@phoenix.mock\",\n        \"events\": [\n            {\n                \"id\": \"5d114a9c-9dab-4ceb-8c8e-25fe30b4f099\",\n                \"person_id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\",\n                \"event_type\": \"click\",\n                \"datetime_created\": \"2023-10-07T23:36:54.430671\"\n            },\n            {\n                \"id\": \"d8b769c7-aa0b-4ddc-b63e-42fdbaa3981e\",\n                \"person_id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\",\n                \"event_type\": \"click\",\n                \"datetime_created\": \"2023-10-07T23:36:55.224951\"\n            },\n            {\n                \"id\": \"d156191e-f073-45f6-9031-c4b323fa1666\",\n                \"person_id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\",\n                \"event_type\": \"signup\",\n                \"datetime_created\": \"2023-10-07T23:36:56.114097\"\n            },\n            {\n                \"id\": \"3669c226-b6ca-4275-a68a-d447ca15cf88\",\n                \"person_id\": \"40a349f1-35d7-48d7-aa09-bb0afdd35e3e\",\n                \"event_type\": \"signup\",\n                \"datetime_created\": \"2023-10-07T23:36:56.935621\"\n            }\n        ],\n        \"first_name\": \"Jean\",\n        \"last_name\": \"Grey\",\n        \"role\": \"admin\"\n    },\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
 						}
 					]
 				},
@@ -677,7 +783,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"0fcf3634-9b0c-4ceb-ab53-7ba8edf3d5fa\"\n}",
+							"raw": "{\n    \"id\": \"5c3a58f3-39e5-49ec-8b81-fa0ace5caf08\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -685,13 +791,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/persons/0fcf3634-9b0c-4ceb-ab53-7ba8edf3d5fa",
+							"raw": "{{base_url}}/persons/5c3a58f3-39e5-49ec-8b81-fa0ace5caf08",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"persons",
-								"0fcf3634-9b0c-4ceb-ab53-7ba8edf3d5fa"
+								"5c3a58f3-39e5-49ec-8b81-fa0ace5caf08"
 							]
 						}
 					},
@@ -856,7 +962,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/events?keyword=submitted_feedback",
+							"raw": "{{base_url}}/events",
 							"host": [
 								"{{base_url}}"
 							],
@@ -866,7 +972,13 @@
 							"query": [
 								{
 									"key": "keyword",
-									"value": "submitted_feedback"
+									"value": "submitted_feedback",
+									"disabled": true
+								},
+								{
+									"key": "person_id",
+									"value": "9f5e7b72-3268-44c0-b5a7-98fed5b8d740",
+									"disabled": true
 								}
 							]
 						}
@@ -1084,39 +1196,30 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": [\n        {\n            \"id\": \"a5b9abc9-8367-4a1e-8b14-c21840c37262\",\n            \"datetime_created\": \"2023-10-06T10:53:02.415559\",\n            \"event_type\": \"click\",\n            \"person_id\": \"049bb5dd-91d2-464e-b049-07da3e8d2627\"\n        }\n    ],\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Events by id",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/events/62701308-809d-4302-b345-92ca72285194",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"events",
-								"62701308-809d-4302-b345-92ca72285194"
-							]
-						}
-					},
-					"response": [
+						},
 						{
-							"name": "200 | Ok",
+							"name": "200 | Search by person_id",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/events/62701308-809d-4302-b345-92ca72285194",
+									"raw": "{{base_url}}/events?person_id=9f5e7b72-3268-44c0-b5a7-98fed5b8d740",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
-										"events",
-										"62701308-809d-4302-b345-92ca72285194"
+										"events"
+									],
+									"query": [
+										{
+											"key": "keyword",
+											"value": "submitted_feedback",
+											"disabled": true
+										},
+										{
+											"key": "person_id",
+											"value": "9f5e7b72-3268-44c0-b5a7-98fed5b8d740"
+										}
 									]
 								}
 							},
@@ -1126,7 +1229,7 @@
 							"header": [
 								{
 									"key": "date",
-									"value": "Fri, 06 Oct 2023 08:45:44 GMT"
+									"value": "Sun, 08 Oct 2023 06:14:17 GMT"
 								},
 								{
 									"key": "server",
@@ -1138,11 +1241,70 @@
 								},
 								{
 									"key": "content-length",
-									"value": "255"
+									"value": "257"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"id\": \"62701308-809d-4302-b345-92ca72285194\",\n        \"datetime_created\": \"2023-10-06T08:44:23.125253\",\n        \"event_type\": \"signup\",\n        \"person_id\": \"049bb5dd-91d2-464e-b049-07da3e8d2627\"\n    },\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"0323d885-13a9-460e-96ab-001afc534fcb\",\n            \"datetime_created\": \"2023-10-08T05:39:36.683119\",\n            \"event_type\": \"signup\",\n            \"person_id\": \"9f5e7b72-3268-44c0-b5a7-98fed5b8d740\"\n        }\n    ],\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Events by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/events/bf8f9aa1-94b9-4261-9ccb-a35e279d2af2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"events",
+								"bf8f9aa1-94b9-4261-9ccb-a35e279d2af2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 | Ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/events/bf8f9aa1-94b9-4261-9ccb-a35e279d2af2",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"events",
+										"bf8f9aa1-94b9-4261-9ccb-a35e279d2af2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Sun, 08 Oct 2023 06:21:48 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "267"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"bf8f9aa1-94b9-4261-9ccb-a35e279d2af2\",\n        \"datetime_created\": \"2023-10-08T06:21:29.214489\",\n        \"event_type\": \"submitted_feedback\",\n        \"person_id\": \"9f5e7b72-3268-44c0-b5a7-98fed5b8d740\"\n    },\n    \"response\": {\n        \"details\": \"The request was successful\",\n        \"message\": \"Ok\",\n        \"status\": 200\n    }\n}"
 						},
 						{
 							"name": "404 | Not Found",
@@ -1253,7 +1415,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"event_type\": \"{{event_type}}\",\n    \"person_id\": \"2ecfeffa-15b5-4da4-9603-12c4c0ba1c76\"\n}",
+							"raw": "{\n    \"event_type\": \"{{event_type}}\",\n    \"person_id\": \"9f5e7b72-3268-44c0-b5a7-98fed5b8d740\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1450,7 +1612,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"62701308-809d-4302-b345-92ca72285194\",\n    \"person_id\": \"049bb5dd-91d2-464e-b049-07da3e8d2627\"\n}",
+							"raw": "{\n    \"id\": \"5485bc79-c3aa-4541-abf9-13232a42e29e\",\n    \"person_id\": \"5c3a58f3-39e5-49ec-8b81-fa0ace5caf08\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1458,13 +1620,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/events/62701308-809d-4302-b345-92ca72285194",
+							"raw": "{{base_url}}/events/5485bc79-c3aa-4541-abf9-13232a42e29e",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"events",
-								"62701308-809d-4302-b345-92ca72285194"
+								"5485bc79-c3aa-4541-abf9-13232a42e29e"
 							]
 						}
 					},

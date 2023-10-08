@@ -55,11 +55,8 @@ class Person(Table, help_text="Represents a person that accesses the api (i.e., 
         required=True
     )
 
-    events: Column = Array(
-        # TODO
-        # base_column=JSONB(),
-        base_column=Varchar(),
-        helper_text="A list of event ids associated with the Person.",
+    events: Column = JSONB(
+        helper_text="A list of events associated with the Person stored as a Postgres JSONB datatype.",
     )
 
     first_name: Column = Varchar(

@@ -5,6 +5,7 @@ from typing import Any
 
 # 👇 A pydantic model in a 'delete event' request shape
 EventDeleteModel: Any = create_pydantic_model(
+    exclude_columns=(Event.event_type, Event.datetime_created),
     include_default_columns=True,
     model_name="EventDeleteModel",
     table=Event,
