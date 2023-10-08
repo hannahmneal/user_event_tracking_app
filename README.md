@@ -18,7 +18,6 @@
 
 <br/>
 
-
 👇 Click the dropdown tables below for additional resources
 
 <details>
@@ -70,31 +69,82 @@ Response:
 {
     "data": [
         {
-            "id": "e67e0a09-b4bf-465b-9490-a1f284d2d090",
-            "datetime_created": "2023-10-06T02:39:56.366948",
-            "datetime_modified": "2023-10-06T02:39:56.366948",
-            "email": "Effie.Abshire@test.mock",
-            "events": [],
-            "first_name": "Effie",
-            "last_name": "Abshire",
+            "id": "f4cc4f34-3f7c-4a0c-b333-df23f72ebc68",
+            "datetime_created": "2023-10-08T06:03:33.330037",
+            "datetime_modified": "2023-10-08T06:03:33.330037",
+            "email": "Max.Rolfson@test.mock",
+            "events": [
+                {
+                    "id": "3b027982-2fe9-4491-a5a2-b504b0e2bb8d",
+                    "person_id": "f4cc4f34-3f7c-4a0c-b333-df23f72ebc68",
+                    "event_type": "signup",
+                    "datetime_created": "2023-10-08 06:03:33.334854"
+                }
+            ],
+            "first_name": "Max",
+            "last_name": "Rolfson",
             "role": "user"
         },
         {
-            "id": "3ebec32b-49bb-455e-a0ae-8fbf6c440581",
-            "datetime_created": "2023-10-06T02:41:02.502941",
-            "datetime_modified": "2023-10-06T02:41:02.502941",
-            "email": "Rosamond.Luettgen@test.mock",
-            "events": [],
-            "first_name": "Rosamond",
-            "last_name": "Luettgen",
+            "id": "40a349f1-35d7-48d7-aa09-bb0afdd35e3e",
+            "datetime_created": "2023-10-07T23:36:07.478145",
+            "datetime_modified": "2023-10-07T19:24:37.085629",
+            "email": "Jean.Grey@phoenix.mock",
+            "events": [
+                {
+                    "id": "5d114a9c-9dab-4ceb-8c8e-25fe30b4f099",
+                    "person_id": "40a349f1-35d7-48d7-aa09-bb0afdd35e3e",
+                    "event_type": "click",
+                    "datetime_created": "2023-10-07T23:36:54.430671"
+                },
+                {
+                    "id": "d8b769c7-aa0b-4ddc-b63e-42fdbaa3981e",
+                    "person_id": "40a349f1-35d7-48d7-aa09-bb0afdd35e3e",
+                    "event_type": "click",
+                    "datetime_created": "2023-10-07T23:36:55.224951"
+                },
+                {
+                    "id": "d156191e-f073-45f6-9031-c4b323fa1666",
+                    "person_id": "40a349f1-35d7-48d7-aa09-bb0afdd35e3e",
+                    "event_type": "signup",
+                    "datetime_created": "2023-10-07T23:36:56.114097"
+                },
+                {
+                    "id": "3669c226-b6ca-4275-a68a-d447ca15cf88",
+                    "person_id": "40a349f1-35d7-48d7-aa09-bb0afdd35e3e",
+                    "event_type": "signup",
+                    "datetime_created": "2023-10-07T23:36:56.935621"
+                }
+            ],
+            "first_name": "Jean",
+            "last_name": "Grey",
             "role": "admin"
         },
         {
-            "id": "bea58cbf-0b80-4564-be18-29e258468f2e",
-            "datetime_created": "2023-10-06T02:41:08.307449",
-            "datetime_modified": "2023-10-05T21:56:47.467118",
-            "email": "Scott.Summers@test.mock",
-            "events": [],
+            "id": "9f5e7b72-3268-44c0-b5a7-98fed5b8d740",
+            "datetime_created": "2023-10-08T05:39:36.671925",
+            "datetime_modified": "2023-10-08T00:57:48.993778",
+            "email": "scott.summers@themoon.mock",
+            "events": [
+                {
+                    "id": "0323d885-13a9-460e-96ab-001afc534fcb",
+                    "person_id": "9f5e7b72-3268-44c0-b5a7-98fed5b8d740",
+                    "event_type": "signup",
+                    "datetime_created": "2023-10-08T05:39:36.683119"
+                },
+                {
+                    "id": "7b20a3bd-002b-4d58-941f-c79011ba3e1a",
+                    "person_id": "9f5e7b72-3268-44c0-b5a7-98fed5b8d740",
+                    "event_type": "click",
+                    "datetime_created": "2023-10-08T00:36:54.430671"
+                },
+                {
+                    "id": "d7584bb53-bef2-49c2-8490-8780c85d8744",
+                    "person_id": "9f5e7b72-3268-44c0-b5a7-98fed5b8d740",
+                    "event_type": "click",
+                    "datetime_created": "2023-10-08T00:58:55.224951"
+                }
+            ],
             "first_name": "Scott",
             "last_name": "Summers",
             "role": "admin"
@@ -113,7 +163,7 @@ Response:
 <br/>
 
 <details>
-<summary>GET Persons by id</summary>
+<summary>GET Person by id</summary>
 <br/>
 
 Route: `http://127.0.0.1:8080/persons/{id}`
@@ -122,11 +172,30 @@ Response:
 ```
 {
     "data": {
-        "id": "bea58cbf-0b80-4564-be18-29e258468f2e",
-        "datetime_created": "2023-10-06T02:41:08.307449",
-        "datetime_modified": "2023-10-05T21:56:47.467118",
-        "email": "Scott.Summers@test.mock",
-        "events": [],
+        "id": "9f5e7b72-3268-44c0-b5a7-98fed5b8d740",
+        "datetime_created": "2023-10-08T05:39:36.671925",
+        "datetime_modified": "2023-10-08T00:57:48.993778",
+        "email": "scott.summers@themoon.mock",
+        "events": [
+            {
+                "id": "0323d885-13a9-460e-96ab-001afc534fcb",
+                "person_id": "9f5e7b72-3268-44c0-b5a7-98fed5b8d740",
+                "event_type": "signup",
+                "datetime_created": "2023-10-08T05:39:36.683119"
+            },
+            {
+                "id": "7b20a3bd-002b-4d58-941f-c79011ba3e1a",
+                "person_id": "9f5e7b72-3268-44c0-b5a7-98fed5b8d740",
+                "event_type": "click",
+                "datetime_created": "2023-10-08T00:36:54.430671"
+            },
+            {
+                "id": "d7584bb53-bef2-49c2-8490-8780c85d8744",
+                "person_id": "9f5e7b72-3268-44c0-b5a7-98fed5b8d740",
+                "event_type": "click",
+                "datetime_created": "2023-10-08T00:58:55.224951"
+            }
+        ],
         "first_name": "Scott",
         "last_name": "Summers",
         "role": "admin"
@@ -163,11 +232,18 @@ Response:
 ```
 {
     "data": {
-        "id": "e67e0a09-b4bf-465b-9490-a1f284d2d090",
-        "datetime_created": "2023-10-06T02:39:56.366948",
-        "datetime_modified": "2023-10-06T02:39:56.366948",
+        "id": "f4cc4f34-3f7c-4a0c-b333-df23f72ebc68",
+        "datetime_created": "2023-10-08T06:03:33.330037",
+        "datetime_modified": "2023-10-08T06:03:33.330037",
         "email": "kate.pryde@marauders.mock",
-        "events": [],
+        "events": [
+            {
+                "id": "3b027982-2fe9-4491-a5a2-b504b0e2bb8d",
+                "datetime_created": "2023-10-08T06:03:33.334854",
+                "event_type": "signup",
+                "person_id": "f4cc4f34-3f7c-4a0c-b333-df23f72ebc68"
+            }
+        ],
         "first_name": "Kate",
         "last_name": "Pryde",
         "role": "admin"
@@ -184,7 +260,8 @@ Response:
 
 <br/>
 
-<details>
+<!-- 🚧 UNDER CONSTRUCTION as of 10/8/23 -->
+<!-- <details>
 <summary>PUT Persons</summary>
 <br/>
 
@@ -225,7 +302,7 @@ Response:
 
 </details>
 
-<br/>
+<br/> -->
 
 <details>
 <summary>DELETE Persons</summary>
@@ -264,35 +341,62 @@ Response:
 
 Route: `http://127.0.0.1:8080/events`
 
-Params (optional): `?search="{keyword}"`
+Params (optional): 
+- `?keyword={event_type}` : Use a keyword to search events
+- `?person_id={person_id}`: Use a person_id (person.id) to search events
+- Example: `http://127.0.0.1:8080/events?keyword=click&person_id=40a349f1-35d7-48d7-aa09-bb0afdd35e3e`
 
-Response: 
+Response (no params):
 ```
 {
     "data": [
         {
-            "id": "3c492150-9ff3-493b-9b50-3c38bfca3baa",
-            "datetime_created": "2023-10-06T10:53:05.830770",
+            "id": "bf8f9aa1-94b9-4261-9ccb-a35e279d2af2",
+            "datetime_created": "2023-10-08T06:21:29.214489",
             "event_type": "submitted_feedback",
-            "person_id": "049bb5dd-91d2-464e-b049-07da3e8d2627"
+            "person_id": "9f5e7b72-3268-44c0-b5a7-98fed5b8d740"
         },
         {
-            "id": "97406743-6987-44a8-bb97-d05da2f5f378",
-            "datetime_created": "2023-10-06T10:53:28.421469",
-            "event_type": "click",
-            "person_id": "0fcf3634-9b0c-4ceb-ab53-7ba8edf3d5fa"
-        },
-        {
-            "id": "274550f2-9660-4bf6-94e1-2aa6cc42982c",
-            "datetime_created": "2023-10-06T10:53:30.265901",
-            "event_type": "submitted_feedback",
-            "person_id": "0fcf3634-9b0c-4ceb-ab53-7ba8edf3d5fa"
-        },
-        {
-            "id": "9c65af1a-c109-4c17-9bf1-5f4bcac95e3c",
-            "datetime_created": "2023-10-06T10:53:31.283195",
+            "id": "cb9ce32a-6571-4e7c-8f6d-ffbdd31aade2",
+            "datetime_created": "2023-10-08T20:00:37.769065",
             "event_type": "signup",
-            "person_id": "0fcf3634-9b0c-4ceb-ab53-7ba8edf3d5fa"
+            "person_id": "427d6a9e-7d7c-4dc7-a2e5-f38128421ab9"
+        },
+        {
+            "id": "f5006d03-aad9-4b23-aa14-9152de9e05dd",
+            "datetime_created": "2023-10-08T20:05:49.174802",
+            "event_type": "signup",
+            "person_id": "ea880a90-d96f-4d80-8bbe-71436f12cd4f"
+        },
+        {
+            "id": "5d114a9c-9dab-4ceb-8c8e-25fe30b4f099",
+            "datetime_created": "2023-10-07T23:36:54.430671",
+            "event_type": "click",
+            "person_id": "40a349f1-35d7-48d7-aa09-bb0afdd35e3e"
+        },
+        {
+            "id": "d8b769c7-aa0b-4ddc-b63e-42fdbaa3981e",
+            "datetime_created": "2023-10-07T23:36:55.224951",
+            "event_type": "click",
+            "person_id": "40a349f1-35d7-48d7-aa09-bb0afdd35e3e"
+        },
+        {
+            "id": "d156191e-f073-45f6-9031-c4b323fa1666",
+            "datetime_created": "2023-10-07T23:36:56.114097",
+            "event_type": "signup",
+            "person_id": "40a349f1-35d7-48d7-aa09-bb0afdd35e3e"
+        },
+        {
+            "id": "3669c226-b6ca-4275-a68a-d447ca15cf88",
+            "datetime_created": "2023-10-07T23:36:56.935621",
+            "event_type": "signup",
+            "person_id": "40a349f1-35d7-48d7-aa09-bb0afdd35e3e"
+        },
+        {
+            "id": "0323d885-13a9-460e-96ab-001afc534fcb",
+            "datetime_created": "2023-10-08T05:39:36.683119",
+            "event_type": "signup",
+            "person_id": "9f5e7b72-3268-44c0-b5a7-98fed5b8d740"
         }
     ],
     "response": {
@@ -317,10 +421,10 @@ Response:
 ```
 {
     "data": {
-        "id": "62701308-809d-4302-b345-92ca72285194",
-        "datetime_created": "2023-10-06T08:44:23.125253",
-        "event_type": "signup",
-        "person_id": "049bb5dd-91d2-464e-b049-07da3e8d2627"
+        "id": "d8b769c7-aa0b-4ddc-b63e-42fdbaa3981e",
+        "datetime_created": "2023-10-07T23:36:55.224951",
+        "event_type": "click",
+        "person_id": "40a349f1-35d7-48d7-aa09-bb0afdd35e3e"
     },
     "response": {
         "details": "The request was successful",
@@ -427,9 +531,7 @@ _Originally I wanted to create an api that allowed for the creation of both even
 
 I chose [blacksheep](https://www.neoteroi.dev/blacksheep/) for my framework because (A) I was already playing with it, (B) it's new and different to me, and (C) I am fascinated by its blend of Python + .NET. It seems like the best of both worlds and I was intrigued by the promise of maintainability, type safety, and speed of performance. I used [Piccolo ORM](https://github.com/piccolo-orm/piccolo) for database interactions because it was recommended by Blacksheep's [Roberto Prevato](https://github.com/Neoteroi/BlackSheep/commits?author=RobertoPrevato) but also because after a galumping through SQLAlchemy docs for what felt like decades, 30 minutes spent on Piccolo's offerings convinced me it was feature-rich and worth trying (the `auto_increment` option for a `Timestamp`, the [Playground](https://piccolo-orm.readthedocs.io/en/latest/piccolo/getting_started/playground.html), `piccolo admin`, and simple [Postgres setup](https://piccolo-orm.readthedocs.io/en/latest/piccolo/getting_started/setup_postgres.html) are all great examples). For data validation, I am using `Pydantic`, which handily ships with `Piccolo`.
 
-As for architecture, I was going for a microservices approach. This is a small project so I began with a single file (`server.py`) which contains the database connection logic, routing, and 'service layer methods'. I do not enjoy how crowded it has become and I intend to simplify everything by separating `routes` from `service` logic and streamlining errors, exceptions, responses and if/else conditions.
-
-After doing some light reading about events and event sourcing, I decided to use a very simple Event table structure and a `JSONB` string which can be searched with the `arrow` function provided by `Piccolo` (in the same way as a `->>` is used in raw SQL). After running into some limitations in my current knowledge, however, I left some comments and used `Varchar` for my simple event model. 
+As for architecture, I was going for a microservices approach. This is a small project so I began with a single file (`server.py`) which contains the database connection logic, routing, and 'service layer methods'. I do not enjoy how crowded it has become and I intend to simplify everything by separating `routes` from `service` logic and streamlining errors, exceptions, responses and if/else conditions. After doing some light reading about events and event sourcing, I decided to use a very simple Event table structure and a `JSONB` string which can be searched with the `arrow` function provided by `Piccolo` (in the same way as a `->>` is used in raw SQL).
 
 ---
 

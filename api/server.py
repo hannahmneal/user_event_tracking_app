@@ -146,7 +146,15 @@ async def persons(req: FromJSON[PersonPostModel]) -> Response:
         return bad_request(message=custom_response(data=None, details=not_created_message(ent='Person', ex=e), message="Bad Request", status_code=400))
 
 
-@put("/persons/{id}")
+# TODO HN 10/8/23: Maybe there should be a separate PUT and PATCH request for different tasks here.
+# Instead of a PUT which can take all Person attrs and Events, maybe this should just handle the 
+# Person and a separate PATCH route should be created specifically for linking events to a person.
+# I don't like that idea very much because I feel that one route should be able to handle both tasks
+# especially if there are separate service methods for the granular nuances but it would be good to
+# explore the pros and cons of both options, at least.
+
+# 🚧 UNDER CONSTRUCTION as of 10/8/23 🚧
+# @put("/persons/{id}")
 # TODO HN 10/7/23: 👇 Figure out why `FromJSON[PersonPutModel]` and `PersonPutModel` don't work and/or create pydantic model manually if necessary
 # async def persons(id: str, req: FromJSON[PersonPutModel]) -> Response:
 async def persons(id: str, req: FromJSON) -> Response:
@@ -156,16 +164,28 @@ async def persons(id: str, req: FromJSON) -> Response:
     try:
         print(f"\nEditing Person with id {id}...")
 
-        req_as_json: dict = req.value
+        # TODO: HN 10/8/23: Find a more elegant solution for the the request structure. 
+        # Currently, someone using the api can copy-🍝 "data: {" ... "}" into the request
+        # body which isn't consistent with the other requests although it is convenient 
+        # from the pov of someone copying the payload from a request to reuse in a PUT.
+        # Accessing the request data here, we have to use `req['data']['key_of_interest']`,
+        # which is awkward.
+
+        req_as_json: dict = req.value['data']
         request_id: str = req_as_json['id']
         # 👇 Ensure the ids in the route and request body match
         # TODO HN 10/7/23: This also needs to ensure that the `person_id` in an event matches
         if id != request_id:
             return bad_request(message=custom_response(data=None, details=route_request_mismatch_message(id=id, request_id=request_id), message="Bad Request", status_code=400))
 
+        # custom_print('json.dumps(req_as_json[events])', json.dumps(req_as_json['events']))
+        # custom_print('req_as_json[events]', req_as_json['events'])
         events = req_as_json['events']
+        # custom_print('events', events)
         encoded_events = json.JSONEncoder().encode(events)
         req_as_json['events'] = encoded_events
+        # custom_print('req_as_json', req_as_json)
+
 
         # TODO: HN 10/8/23: Fix the situation where events on a Person can be overwritten on the
         # person's `events` array, yet the event still exists in the database (so, recovery of
@@ -179,7 +199,9 @@ async def persons(id: str, req: FromJSON) -> Response:
 
         # 👇 Ensures the events are returned as 'pretty' json rather than a string jsonb
         decoded_events = json.JSONDecoder().decode(edited_person['events'])
+        # custom_print('decoded_events', decoded_events)
         edited_person['events'] = decoded_events
+        # custom_print('edited_person', edited_person)
 
         if not edited_person:
             return not_found(message=custom_response(data=edited_person, details=not_found_by_id_message(ent='Person', id=id), message="Not Found", status_code=404))
