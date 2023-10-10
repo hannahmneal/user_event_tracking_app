@@ -8,4 +8,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["uvicorn api.server:app --port 8080 --reload --log-level info"]
+CMD uvicorn api.server:app --port 8080 --reload --log-level info

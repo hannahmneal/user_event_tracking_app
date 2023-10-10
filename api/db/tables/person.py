@@ -1,6 +1,6 @@
 from datetime import datetime
 from enum import Enum
-from piccolo.columns import Array, Column, Email, JSONB, Timestamp, UUID, Varchar
+from piccolo.columns import Column, Email, JSONB, Timestamp, UUID, Varchar
 from piccolo.table import Table
 
 # With the exception of the 'id' column, table columns are organized alphabetically
@@ -51,26 +51,30 @@ class Person(Table, help_text="Represents a person that accesses the api (i.e., 
     email: Column = Email(
         helper_text="The email of the Person.",
         length=40,
-        null=True,
+        null=False,
         required=True
     )
 
     events: Column = JSONB(
+        default="{}",
         helper_text="A list of events associated with the Person stored as a Postgres JSONB datatype.",
+        null=False,
     )
 
     first_name: Column = Varchar(
         default=None,
         helper_text="The first name of the Person.",
         length=40,
-        null=True
+        null=False,
+        required=True
     )
 
     last_name: Column = Varchar(
         default=None,
         helper_text="The last name of the Person.",
         length=40,
-        null=True
+        null=False,
+        required=True,
     )
 
     role: Column = Varchar(
@@ -78,4 +82,5 @@ class Person(Table, help_text="Represents a person that accesses the api (i.e., 
         default=Role.USER,
         helper_text="The role associated with the Person (used for permissions and api access). A 'signup' Event is assigned to a Person upon creation, mimicking a client-side signup event.",
         null=False,
+        required=True,
     )

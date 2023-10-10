@@ -1,4 +1,5 @@
 services:
+  # HN 10/9/23: Currently there is no need to run the api in a container; however, I'm leaving it here for future development
   api:
     build:
       context: .
@@ -7,13 +8,6 @@ services:
     image: api
     volumes:
     - ./:/api
-    environment:
-      - DB_HOST=${DB_HOST}
-      - DB_NAME=${DB_NAME}
-      - DB_PASS=${DB_PASS}
-      - DB_PORT=${DB_PORT}
-      - DB_USER=${DB_USER}
-    command: "uvicorn api.server:app --port 8080 --reload --log-level info"
     env_file:
       - .env
     depends_on:
@@ -30,13 +24,14 @@ services:
     container_name: postgres
     image: postgres:latest
     environment:
-      - DB_HOST=${DB_HOST}
-      - DB_NAME=${DB_NAME}
-      - DB_PASS=${DB_PASS}
-      - DB_PORT=${DB_PORT}
-      - DB_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASS}
-      - POSTGRES_USER=${DB_USER}
+      DB_HOST: ${DB_HOST}
+      DB_NAME: ${DB_NAME}
+      DB_PASS: ${DB_PASS}
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER}
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_USER: ${DB_USER}
     env_file:
       - .env
     ports:

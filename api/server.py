@@ -12,9 +12,10 @@ from blacksheep.exceptions import InternalServerError
 from blacksheep.server.openapi.v3 import OpenAPIHandler
 from datetime import datetime
 from dotenv import load_dotenv
-from openapidocs.v3 import Info
-from piccolo.engine import engine_finder
 from piccolo.columns.combination import And, Or
+from piccolo.engine import engine_finder
+from piccolo.table import create_db_tables
+from openapidocs.v3 import Info
 from typing import Optional
 import json
 import os
@@ -40,13 +41,16 @@ put = app.router.put
 
 docs = OpenAPIHandler(info=Info(title="User Event Tracking Api Application", version="0.0.1"))
 docs.bind_app(app)
+# configure_docs(app)
 
 # -------------------------------------------------------------------------------------------
 
+@docs(ignored=True)
 @get("/")
 def home():
     return f"\nHello, World! {datetime.utcnow().isoformat()}"
 
+@docs(ignored=True)
 @get("/crash_test")
 def crash_test():
     raise Exception("Crash test")
@@ -56,7 +60,7 @@ def crash_test():
 @get("/persons")
 async def persons() -> Response:
     """
-    Gets a list of all Persons. Note that if _no_ Person items are present in the database, an empty array is returned *successfully*.
+    Gets a list of all Persons. Note that if *no* Person items are present in the database, an empty array is returned *successfully*.
     """
     try:
         print(f"\nGetting a list of all Persons...")
@@ -104,6 +108,7 @@ async def persons(req: FromJSON[PersonPostModel]) -> Response:
     """
     try:
         print("\nCreating new Person...")
+        #TODO HN 10/9/23: Add request validation; Currently, no error is thrown if a request is sent with an `id` or `datetime_modified`. They are simply ignored in the request and values are set below instead. I'd rather tell the api user their request is invalid than quietly ignore it. Additionally, `role` can have any string value, not just one from the enum.
         person = Person(**req.value.dict())
 
         if person.id is None:
@@ -154,9 +159,9 @@ async def persons(req: FromJSON[PersonPostModel]) -> Response:
 # explore the pros and cons of both options, at least.
 
 # 🚧 UNDER CONSTRUCTION as of 10/8/23 🚧
-# @put("/persons/{id}")
-# TODO HN 10/7/23: 👇 Figure out why `FromJSON[PersonPutModel]` and `PersonPutModel` don't work and/or create pydantic model manually if necessary
-# async def persons(id: str, req: FromJSON[PersonPutModel]) -> Response:
+@docs(ignored=True)
+@put("/persons/{id}")
+# TODO HN 10/7/23
 async def persons(id: str, req: FromJSON) -> Response:
     """
     Updates an existing Person with the data from the request
@@ -248,7 +253,7 @@ async def events(keyword: Optional[str], person_id: Optional[str]) -> Response:
     try:
         print(f"\nGetting a list of all Events...")
 
-        # TODO: HN 10/7/23: Find a better way to handle this if/else and exception madness. 
+        # TODO: HN 10/7/23: if/else and exception madness. 
         if keyword and person_id:
             events_search = await Event.select().where(And(keyword == Event.event_type, person_id == Event.person_id)).run()
             if not events_search:
@@ -372,8 +377,7 @@ async def open_database_connection_pool(application):
         # TODO: Tables need to be created (if they don't exist) prior to executing transactions; handle this here?
         engine = engine_finder()
         await engine.start_connection_pool()
-        await Person.create_table(if_not_exists=True)
-        await Event.create_table(if_not_exists=True)
+        await create_db_tables(Person, Event, if_not_exists=True)
     except Exception as e:
         print(f"Unable to connect to the database. Details: \n{e}")
 

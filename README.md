@@ -4,19 +4,37 @@
 
 ### ⚙️ **Setup**
 
-- Clone this repo and open the project in your IDE (I am using Visual Studio Code):
+Pre-requisites (all users)
+- Download and install Docker Desktop via [Docker Desktop for Mac](https://docs.docker.com/desktop/install/mac-install/) or [Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows-install/). (❗This may require a machine restart if you have not downloaded it before.)
+- Clone this repo and open the project in your IDE (I am using Visual Studio Code)
+
+<details>
+<summary>Mac Users</summary>
+
+_This was tested on a Macbook Pro (M2) running Ventura 13.4.1_
+
 - To get started, from the project root create a `.env` file and copy-🍝 the contents of `.env.sample` into it (refer to the "Environment Variables" table below for local values)
 - Create your virtual environment (for `venv` users, this is: `python3 -m venv api && source api/bin/activate`)
-- Next, set up the database with: `make setup-db`. Before moving to the next step, confirm you see 'Started' for 'Container postgres' in your terminal, like this:
-```
-[+] Running 3/3
- ✔ Volume "user_event_tracking_app_db-data"  Created                                                                                                                                                   0.0s 
- ✔ Container postgres                        Started                                                                                                                                                   0.0s 
-```
-- To start the app itself, run: `make start-api`
-- Before making any `Event` in the database, you need to create some `Person` rows (this is because an event is intended to be associated with a person). This can be done easily if you have Postman installed and upload the collection I included in `api/docs/User Events Api Application.postman_collection.json`.
+- Still from the root, run `make api-start-local` to set up the database, load requirements, and start the api.
+- At the time of this writing, the database will be created without any stub data to use. It's important to note that, due to the linkage between `Person` and `Event`, you will need to create some `Person` rows before creating an `Event`. This can be done easily if you have Postman installed and upload the collection I included in `api/docs/User Events Api Application.postman_collection.json`.
 
-<br/>
+</details>
+
+---
+
+<details>
+<summary>Windows Users</summary>
+
+_This was tested on a Samsung machine (64-bit) running Windows 11_
+
+- To get started, from the project root create a `.env` file and copy-🍝 the contents of `.env.sample` into it (refer to the "Environment Variables" table below for local values)
+- Create your virtual environment (for `venv` users, this is: `python3 -m venv api`, then `api/Scripts/activate`)
+- Still from the root, run `bash startup.sh` to set up the database, load requirements, and start the api (see "Troubleshooting Setup" in `api/docs/troubleshooting_setup.md`  below if you receive errors)
+- At the time of this writing, the database will be created without any stub data to use. It's important to note that, due to the linkage between `Person` and `Event`, you will need to create some `Person` rows before creating an `Event`. This can be done easily if you have Postman installed and upload the collection I included in `api/docs/User Events Api Application.postman_collection.json`.
+
+</details>
+
+---
 
 👇 Click the dropdown tables below for additional resources
 
@@ -45,8 +63,11 @@ _While there is only one environment currently (local), variables for database c
 
 | Command | Description |
 | --- | --- |
-| `make start-api` | Starts the api (assuming the database is already running successfully) |
-| `make setup-db` | Sets up PostgreSQL database in a docker container |
+| `make api-start-local` | Sets up the database in a Docker container, loads requirements, and starts the api locally. This is a composite command consisting of `setup-db`, `load-requirements`, and `start-api`. |
+| `make load-requirements` | Loads requirements from `requirements.txt`. |
+| `make setup-db` | Sets up a PostgreSQL database in a Docker container. |
+| `make start-api` | Starts the api (assuming the database is already running successfully and requirements are loaded). |
+| `bash startup.sh` | A shell command equivalent of `make api-start-local`; Intended for Windows users (or anyone not using a Makefile) to reduce annoying installations and setup but it can be used by Mac users as well. |
 
 </details>
 
@@ -54,7 +75,7 @@ _While there is only one environment currently (local), variables for database c
 
 ### 🔗 **Routes & Requests**
 
-OpenApi Documentation can be found locally at http://127.0.0.1:8080/docs. Additionally, a Postman Collection has been included for convenience (see api/docs/User Events Api Application.postman_collection.json). Import it directly into Postman to begin playing with the api. It includes collection variables and pre-request scripts for dynamic POST requests, but it does not include environment variables. You will need to add an environment variable yourself called `base_url`. It's value should be `http://127.0.0.1:8080`.
+OpenApi Documentation can be found locally at http://127.0.0.1:8080/docs. Additionally, a Postman Collection has been included for convenience (see `api/docs/User Events Api Application.postman_collection.json`). Import it directly into Postman to begin playing with the api. It includes collection variables and pre-request scripts for dynamic POST requests, but it does not include environment variables. You will need to add an environment variable yourself called `base_url`. It's value should be `http://127.0.0.1:8080`.
 
 For those who don't have Postman, Routes & Requests are included in the dropdowns below
 
